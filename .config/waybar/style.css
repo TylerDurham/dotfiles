@@ -90,6 +90,7 @@ window#waybar {
 /* IDLE INHIBITOR WIDGET */
 #idle_inhibitor {
   color: @thm-grey;
+  padding-right: 10px;
 }
 
 #idle_inhibitor.activated {
