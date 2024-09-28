@@ -1,0 +1,54 @@
+#!/usr/bin/sh
+
+OPTSTRING=":ghd:"
+
+use_geo=0
+directory=$(xdg-user-dir PICTURES)
+
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in
+    g)
+      echo "use_geo option specified: -g"
+      use_geo=1
+      ;;
+
+    d)
+      echo "Directory option specified: -d ${OPTARG}"
+      directory=${OPTARG}
+      if [ ! -d $path ]; then
+        echo "Directory specified in -d option does not exists: ${OPTARG}"
+        exit 1
+      fi
+      ;;
+
+    h)
+      echo "Usage: $0 [-g] [-d /path/to/directory]"
+      echo "  -g: Select a region for the screenshot."
+      echo "  -d: Specify the output directory. Default is ~/Pictures."
+      exit 0
+      ;;
+    ?)
+      echo "Invalid option: -${OPTARG}."
+      echo "Use -h to see options"
+      exit 1
+      ;;
+
+  esac
+done
+
+focused_window="$(swaymsg -t get_tree | jq -r '.nodes[] | select([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | .name')"
+filename="$directory/$(date +'GRIM-SCREENSHOT_%s.png')"
+
+echo "Writing $filename"
+
+if [ 0 -eq $use_geo ] 
+then
+  grim -o $focused_window $filename
+else
+  grim -g "$(slurp)" $filename  
+fi
+
+
+
+
+ 

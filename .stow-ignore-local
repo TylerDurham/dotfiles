@@ -1,0 +1,7 @@
+.stow-ignore-local
+install.sh
+uninstall.sh
+README.md
+LICENSE
+.gitignore
+.git

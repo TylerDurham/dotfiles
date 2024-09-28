@@ -1,0 +1,18 @@
+layer=overlay
+font=FiraCode 12
+edge=bottom
+button-dismiss-gap=10
+
+[error]
+background=#f38ba8
+text=#1e1e2e
+button-background=#1e1e2e
+button-text=#cdd6f4
+
+[warning]
+background=#fab387
+text=#1e1e2e
+button-background=#1e1e2e
+button-text=#cdd6f4
+
+

@@ -1,0 +1,30 @@
+[global]
+frame_color = "#1e1e2e"
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+separator_color= frame
+monitor=1
+font = "FiraCode 12"
+width = 350
+icon_path = ~/.local/share/icons
+origin = bottom-right
+
+[urgency_low]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_normal]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+
+[urgency_critical]
+background = "#1e1e2e"
+foreground = "#cdd6f4"
+frame_color = "#fab387"
+
+[screenshot]
+background = "#94e2d5"
+foreground = "1e1e2e"
+frame_color = "#94e2d5"
+appname = "Screenshot"
+timeout = 3
