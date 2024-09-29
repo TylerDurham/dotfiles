@@ -1,0 +1,55 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#89b4fa",
+          "properties": {
+            "style": "folder"
+          },
+          "style": "plain",
+          "template": "{{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#f38ba8",
+          "properties": {
+            "branch_icon": "",
+            "fetch_status": false
+          },
+          "style": "plain",
+          "template": "<#a6e3a1>git:(</>{{ .HEAD }}<#a6e3a1>)</> ",
+          "type": "git"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "type": "rprompt",
+      "segments": [
+        {
+          "foreground": "#89B4FA",
+          "style": "plain",
+          "template": "{{.Icon}} ",
+          "type": "os"
+        },
+        {
+          "foreground": "#ffffff",
+          "foreground_templates": ["{{ if .Error }}#f38ba8{{ end }}"],
+          "style": "plain",
+          "template": "[{{ .Code }}] ",
+          "type": "status"
+        }
+      ]
+    }
+  ],
+  "version": 2,
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#585b70",
+    "template": "<#585b70>{{ .Shell }}><#7a7979> "
+  },
+  "console_title_template": " {{.Shell}} in {{ .AbsolutePWD }}"
+}
