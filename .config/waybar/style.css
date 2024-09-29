@@ -84,6 +84,7 @@ window#waybar {
 
 #network {
   color: @thm-blue;
+  padding-right: 10px;
 }
 
 /* #################################################### */
