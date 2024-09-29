@@ -1,0 +1,15 @@
+#!/usr/bin/zsh
+
+# Ensure stow is installed...
+installed=$(type stow | grep "not found")
+
+if [ -z $installed ]; then
+  # Find all directories starting with an '@' symbol. Those are our stow packages.
+  find . -maxdepth 1 -type d -printf '%f\n' | grep "@[a-zA-Z0-9]*" | while read dir; do
+    echo "Stow'ing '$dir'."
+    stow -S $dir -t $HOME
+  done
+else
+  echo "GNU stow not found. Please install stow: https://www.gnu.org/software/stow/"
+  exit 1
+fi
