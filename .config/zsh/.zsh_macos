@@ -1,0 +1,23 @@
+echo "Setting MacOS specific shell options."
+
+# Aerospace
+alias alapps='aerospace list-apps'
+alias alwin='aerospace list-windows'
+alias alwina='aerospace list-windows --all'
+alias alwork='aerospace list-workspaces'
+alias alworka='aerospace list-workspaces --all'
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# NVM for MacOs - i use HomeBrew to install
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+echo "pinentry-program /opt/homebrew/bin/pinentry-curses" > ~/.gnupg/gpg-agent.conf

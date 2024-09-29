@@ -1,0 +1,37 @@
+alias cls=clear
+alias startgnome="sudo systemctl start gdm"
+alias stopgnome="sudo systemctl stop gdm"
+alias tsc="./node_modules/.bin/tsc"
+
+# Alias for bat
+alias bat="batcat"
+
+installed=$(type ip | grep "not found")
+if [ -z $installed ]; then
+  # ip command not available on MacOS.
+  alias ipen=$( ip -br l | awk '$1 ~ "en|enp" { print $1}')
+  alias ipwl=$(ip -br l | awk '$1 ~ "wl|wlp" { print $1}')
+  alias ipvpn=$(ip -br l | awk '$1 ~ "tun" { print $1}')
+fi
+
+
+# lsd --icons
+# ls
+alias ls='lsd --icon auto'
+alias l='lsd --icon auto -lh'
+alias ll='lsd --icon auto -lah'
+alias la='lsd --icon auto -A'
+alias lm='lsd --icon auto -m'
+alias lr='lsd --icon auto -R'
+alias lg='lsd --icon auto -l --group-directories-first'
+
+# git
+alias gcl='git clone --depth 1'
+alias gi='git init'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push origin main'
+alias gca='git commit -a'
+
+alias source-zsh='source ~/.zshrc'
+alias source-dotfiles='git -C ~/.dotfiles pull && stow -d ~/.dotfiles -t ~/ && source-zsh'

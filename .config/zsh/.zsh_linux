@@ -1,0 +1,13 @@
+echo "Setting Linux specific shell options."
+
+# Default text editor
+export EDITOR=/usr/bin/nvim
+
+unset SSH_ASKPASS
+
+# Ensure gpg uses pinentry-curses
+echo "pinentry-program /usr/bin/pinentry-curses" > ~/.gnupg/gpg-agent.conf
+
+alias get-focused-sway-window="swaymsg -t get_tree | jq -r '.nodes[] | select([recurse(.nodes[]?, .floating_nodes[]?) | .focused] | any) | .name'"
+
+alias get-screenshot='grim -o "$(get-focused-sway-window)"'
