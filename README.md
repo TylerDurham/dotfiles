@@ -13,7 +13,7 @@ My sway window manager config, based on the [Catppuccin] `mocha` theme. Includes
 - Catpuccin Mocha theme configured for `swaymsg`, `swaynag`, `sway`, `rofi`, `waybar`, and `dunst`.
 - Screenshot script & keybindings.
 
-![A screenshot of the sway theme](https://github.com/TylerDurham/dtd-sway/blob/main/media/screenshot1.png?raw=true)
+![A screenshot of the sway theme](https://github.com/TylerDurham/dotfiles/blob/main/media/screenshot1.png?raw=true)
 
 ## @terminal
 
