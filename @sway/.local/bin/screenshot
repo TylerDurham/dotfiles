@@ -48,6 +48,7 @@ else
   grim -g "$(slurp)" $filename  
 fi
 
+dunstify "Screenshot" "Screenshot saved to '<i>$filename</i>'." -i ~/.local/share/icons/dunst/camera-photo.svg
 
 
 
