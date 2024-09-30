@@ -296,3 +296,4 @@ input "1739:52581:MSFT0001:01_06CB:CD65_Touchpad" {
 }
 
 bindsym --no-warn print exec --no-startup-id ~/.local/bin/screenshot 
+exec ~/.local/bin/nightshift &
