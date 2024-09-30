@@ -1,0 +1,50 @@
+#!/usr/bin/zsh
+
+OPTSTRING=":r"
+
+dir="$XDG_CONFIG_HOME/nightshift"
+loc="$dir/.location"
+
+function refresh_geo() {
+  echo "Refreshing geolocation cache."
+  curl -s https://ipinfo.io -o "$dir/.location"
+}
+
+# If the cache directory doesn't exist, create it.
+function check_dir() {
+  if [[ ! -d $dir ]]; 
+  then
+    mkdir -p $dir 
+  fi
+}
+
+while getopts ${OPTSTRING} opt; do
+  case ${opt} in   
+   r)
+    refresh_geo
+    ;;
+  esac
+done
+
+check_dir
+
+# If the cache file doesn't exist, create it.
+if [[ ! -f $loc ]];
+then
+  refresh_geo
+fi
+
+coord=$(cat $loc | jq -r .loc)
+IFS=',' read -r loc <<< "$coord"
+
+lat=${loc[0]}
+long=${loc[1]}
+
+p=$(pidof wlsunset)
+if [[ p -gt 0 ]];
+then
+  pkill wlsunset
+fi
+
+wlsunset -l $lat -L $long &
+
