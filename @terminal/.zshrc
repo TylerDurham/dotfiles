@@ -4,7 +4,7 @@ export EDITOR="nvim"
  #PATH
 
 # Oh-My-Posh
-export PATH=$PATH:/home/tyler/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/sudonyms.omp.json)"
 #eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/catppuccin_mocha.omp.json)"
 
