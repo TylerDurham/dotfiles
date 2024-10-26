@@ -282,8 +282,8 @@ client.background        $base
 # Custom hardware
 
 # Monitors on desktop widescreen is on the right!
-output DP-1 pos 1440 0 res 2560x1080@99.943Hz    
-output HDMI-A-1 pos 0 0 res 2560x144  
+output DP-1 pos 2560 0 res 2560x1080@99.943Hz    
+output HDMI-A-1 pos 0 0 res 2560x1440 
 
 workspace 0 output HDMI-A-1
 
