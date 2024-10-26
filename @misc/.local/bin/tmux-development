@@ -1,0 +1,29 @@
+#!/usr/bin/env zsh
+
+START_DIR=$1
+SESSION="DEVELOPMENT"
+SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
+
+if [ -d $START_DIR ]; then
+  echo "Moving to $START_DIR..."
+  cd $START_DIR
+fi
+
+if [ "$SESSIONEXISTS" = "" ]
+then
+  tmux new-session -d -s $SESSION
+
+  tmux rename-window -t 1 "Editor"
+  tmux send-keys "clear" C-m 
+
+  tmux split-window -h -p 33
+  tmux send-keys "clear" C-m 
+  
+  tmux split-window -v -p 50
+  tmux send-keys "clear" C-m
+
+  tmux select-pane -t 1
+   
+fi
+
+tmux attach-session -t $SESSION:1
