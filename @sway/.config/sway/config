@@ -266,12 +266,12 @@ set $mauve #7287fd
 
 set $tf $base
 set $tu $surface0
-set $pop $yellow
+set $pop $peach
 
 # target                 title     bg    text   indicator  border
-client.focused           $base     $base $pop   $blue      $base
-client.focused_inactive  $overlay0 $base $pop   $overlay0  $overlay0
-client.unfocused         $tu       $tu   $text  $overlay0  $base
+client.focused           $base     $mantle $pop   $blue      $base
+client.focused_inactive  $overlay0 $base $blue  $overlay0  $overlay0
+client.unfocused         $tu       $base $surface2 $overlay0  $base
 client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
