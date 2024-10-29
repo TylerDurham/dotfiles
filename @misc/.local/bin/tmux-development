@@ -15,6 +15,7 @@ then
 
   tmux rename-window -t 1 "Editor"
   tmux send-keys "clear" C-m 
+  tmux send-keys "nvim ." C-m
 
   tmux split-window -h -p 33
   tmux send-keys "clear" C-m 
