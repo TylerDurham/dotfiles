@@ -6,8 +6,8 @@
 
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+# Logo key. Use Mod1 for Alt. Like on MacOs
+set $mod Mod1          
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -71,13 +71,13 @@ output * bg ~/.config/sway/default-wallpaper.jpg fill
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec alacritty
+    bindsym Mod4+Return exec alacritty
 
-    # Kill focused window
-    bindsym $mod+Shift+q kill
+    # Kill focused window like on MacOS.
+    bindsym Mod4+q kill
 
-    # Start your launcher
-    bindsym $mod+d exec $menu
+    # Start your launcher like on MacOs.
+    bindsym Mod4+Space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
