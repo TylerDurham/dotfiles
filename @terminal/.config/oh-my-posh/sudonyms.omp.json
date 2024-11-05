@@ -1,55 +1,57 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "transient_prompt": {
+    "template": "<#585b70>{{ .Shell }}><#7a7979> ",
+    "foreground": "#585b70",
+    "background": "transparent"
+  },
+  "console_title_template": " {{.Shell}} in {{ .AbsolutePWD }}",
   "blocks": [
     {
+      "type": "prompt",
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#89b4fa",
           "properties": {
             "style": "folder"
           },
           "style": "plain",
           "template": "{{ .Path }} ",
+          "foreground": "#89b4fa",
           "type": "path"
         },
         {
-          "foreground": "#f38ba8",
           "properties": {
             "branch_icon": "",
             "fetch_status": false
           },
           "style": "plain",
           "template": "<#a6e3a1>git:(</>{{ .HEAD }}<#a6e3a1>)</> ",
+          "foreground": "#f38ba8",
           "type": "git"
         }
-      ],
-      "type": "prompt"
+      ]
     },
     {
       "type": "rprompt",
       "segments": [
         {
-          "foreground": "#89B4FA",
           "style": "plain",
           "template": "{{.Icon}} ",
+          "foreground": "#89B4FA",
           "type": "os"
         },
         {
-          "foreground": "#ffffff",
-          "foreground_templates": ["{{ if .Error }}#f38ba8{{ end }}"],
           "style": "plain",
           "template": "[{{ .Code }}] ",
-          "type": "status"
+          "foreground": "#ffffff",
+          "type": "status",
+          "foreground_templates": [
+            "{{ if .Error }}#f38ba8{{ end }}"
+          ]
         }
       ]
     }
   ],
-  "version": 2,
-  "transient_prompt": {
-    "background": "transparent",
-    "foreground": "#585b70",
-    "template": "<#585b70>{{ .Shell }}><#7a7979> "
-  },
-  "console_title_template": " {{.Shell}} in {{ .AbsolutePWD }}"
+  "version": 3
 }

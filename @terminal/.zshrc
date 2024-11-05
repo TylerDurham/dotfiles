@@ -78,4 +78,4 @@ export GPG_TTY=$(tty)
 clear
 
 # Why not? Why SHOULDN'T I run neofetch?
-neofetch
+fastfetch
