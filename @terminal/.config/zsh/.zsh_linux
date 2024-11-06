@@ -3,6 +3,10 @@ echo "Setting Linux specific shell options."
 # Default text editor
 export EDITOR=/usr/bin/nvim
 
+# Default themes
+export GTK_THEME=Otis
+export ICON_THEME=Aretha-Dark-Icons
+
 unset SSH_ASKPASS
 
 # Ensure gpg uses pinentry-curses
