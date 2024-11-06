@@ -1,0 +1,51 @@
+#!/usr/bin/zsh
+
+# #############################################
+# SETS THE THEMES FOR ALL FLATPAK APPS.
+# #############################################
+
+OPTSTRING=":t:i:h"
+
+# DEFAULTS
+THEME="Otis"    
+ICONS="Aretha-Dark-Icons"
+
+while getopts ${OPTSTRING} opt; do
+  echo $OPT
+  case ${opt} in
+    t)
+      if [[ ! -z $OPTARG ]]; then
+        THEME=$OPTARG
+      fi
+      ;;
+
+    i)
+      
+      if [[ ! -z $OPTARG ]]; then
+        ICONS=$OPTARG
+      fi
+      ;;
+
+    h)
+      echo "Usage: [-t THEME ] [-i ICONS]"
+      echo "  -t: Specify the theme to set for Flatpak apps."
+      echo "  -i: Specify the icons to set for Flatpak apps."
+      exit 0
+      ;;
+    ?)
+      echo "Invalid option: -${OPTARG}."
+      echo "Use -h to see options"
+      exit 1
+      ;;
+
+  esac
+done
+
+sudo flatpak override --filesystem=$HOME/.themes
+sudo flatpak override --filesystem=$HOME/.icons
+
+echo "Setting flatpak ICON_THEME to $ICONS..."
+sudo flatpak override --env=ICON_THEME=$ICONS
+
+echo "Setting flatpak GTK_THEME to ${THEME}..."
+sudo flatpak override --env=GTK_THEME=$THEME
