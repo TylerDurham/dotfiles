@@ -25,6 +25,7 @@ return {
         "lua_ls",
         "emmet_ls",
         "html",
+        "gopls",
         "cssls",
         "tailwindcss",
         "pyright"
