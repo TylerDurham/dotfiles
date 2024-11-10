@@ -55,6 +55,7 @@ window#waybar {
 #mode,
 #idle_inhibitor,
 #scratchpad,
+#keyboard-state,
 #power-profiles-daemon,
 #mpd {
   background-color: transparent;
@@ -124,4 +125,16 @@ window#waybar {
 /* Power Saver Power Profile */
 #power-profiles-daemon.power-saver {
   color: @thm-green;
+}
+
+#keyboard-state label {
+  color: @thm-gray;
+  padding: 5px;
+  margin: 5px;
+  border: solid 1px transparent;
+}
+
+#keyboard-state label.locked {
+  color: @thm-blue;
+  border: solid 1px @thm-blue;
 }
