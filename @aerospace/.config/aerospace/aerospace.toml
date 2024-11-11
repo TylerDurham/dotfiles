@@ -109,9 +109,9 @@ alt-4 = 'workspace 4'
 alt-5 = 'workspace 5'
 alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
-alt-b = 'workspace 8'
-alt-t = 'workspace 9'
-alt-w = 'workspace 0'
+alt-e = 'workspace E'
+alt-t = 'workspace T'
+alt-o = 'workspace O'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -121,9 +121,9 @@ alt-shift-4 = 'move-node-to-workspace 4'
 alt-shift-5 = 'move-node-to-workspace 5'
 alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-0 = 'move-node-to-workspace 0'
+alt-shift-e = 'move-node-to-workspace E'
+alt-shift-t = 'move-node-to-workspace T'
+alt-shift-o = 'move-node-to-workspace O'
 
 alt-shift-f = 'fullscreen'
 
@@ -168,16 +168,24 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.teams2'
-run = "move-node-to-workspace W"
+run = "move-node-to-workspace T"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Outlook'
-run = "move-node-to-workspace W"
+run = "move-node-to-workspace O"
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
-run = "move-node-to-workspace B"
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'com.brave.Browser'
-run = "move-node-to-workspace B"
+if.app-id = 'org.alacritty'
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.edgemac"
+run = "move-node-to-workspace E"
+
+[[on-window-detected]]
+if.app-id = "md.obsidian"
+run = "move-node-to-workspace 3"
