@@ -189,3 +189,14 @@ run = "move-node-to-workspace E"
 [[on-window-detected]]
 if.app-id = "md.obsidian"
 run = "move-node-to-workspace 3"
+
+[[on-window-detected]]
+if.app-id = "com.spotify.client"
+run = "move-node-to-workspace 0"
+
+[[on-window-detected]]
+if.app-id = "tv.plex.plexamp"
+run = "move-node-to-workspace 0"
+
+[workspace-to-monitor-force-assignment]
+0 = 1 
