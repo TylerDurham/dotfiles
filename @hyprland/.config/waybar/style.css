@@ -1,0 +1,145 @@
+@define-color thm-bg rgba(30, 30, 46, .5);
+@define-color thm-fg #cdd6f4;
+@define-color thm-cyan #89dceb;
+@define-color thm-black #181825;
+@define-color thm-gray rgba(49, 50, 68, .8);
+@define-color thm-magenta #cba6f7;
+@define-color thm-pink #f5c2e7;
+@define-color thm-red #f38ba8;
+@define-color thm-green #a6e3a1;
+@define-color thm-yellow #f9e2af;
+@define-color thm-blue #89b4fa;
+@define-color thm-orange #fab387;
+@define-color thm-black4 #585b70;
+
+* {
+  font-family: 'Font Awesome', monospace;
+  font-size: 14px;
+}
+
+#workspaces button {
+  background-color: @thm-gray;
+  color: @text;
+  border-radius: 0px;
+  margin: 0px 5px;
+}
+
+#workspaces button:hover {
+  background-color: @thm-blue;
+}
+
+#workspaces button.active {
+  background-color: @thm-green;
+  color: @thm-bg;
+}
+
+#workspaces button.focused {
+  background-color: @thm-green;
+  color: @thm-bg;
+}
+
+window#waybar {
+  padding: 5px;
+  background-color: @thm-bg;
+  color: @text;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#language,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#keyboard-state,
+#power-profiles-daemon,
+#mpd {
+  background-color: transparent;
+  font-weight: bold;
+  color: @text;
+  padding-left: 15px;
+}
+
+#battery {
+  color: @thm-orange;
+}
+
+#tray {
+  background-color: transparent;
+}
+
+#clock {
+  background-color: transparent;
+  font-weight: bold;
+  color: @thm-pink;
+}
+
+#keyboard {}
+
+/* TODO: Need to compile waybar with MPD support to get this to work */
+#mpd {}
+
+#network {
+  color: @thm-blue;
+  padding-right: 10px;
+}
+
+/* #################################################### */
+/* IDLE INHIBITOR WIDGET */
+#idle_inhibitor {
+  color: @thm-grey;
+  padding-right: 10px;
+}
+
+#idle_inhibitor.activated {
+  color: @thm-green;
+}
+
+/* #################################################### */
+/* PULSE AUDIO WIDGET   */
+
+#pulseaudio {
+  color: @thm-magenta
+}
+
+/* #################################################### */
+/* POWER PROFILE WIDGETS */
+
+/* Shared Power Profile Styles */
+#power-profiles-daemon {}
+
+/* Performance Power Profile */
+#power-profiles-daemon.performance {
+  color: @thm-red;
+}
+
+/* Balanced Power Profile */
+#power-profiles-daemon.balanced {
+  color: @thm-blue;
+}
+
+/* Power Saver Power Profile */
+#power-profiles-daemon.power-saver {
+  color: @thm-green;
+}
+
+#keyboard-state label {
+  color: @thm-gray;
+  padding: 5px;
+  margin: 5px;
+  border: solid 1px transparent;
+}
+
+#keyboard-state label.locked {
+  color: @thm-blue;
+  border: solid 1px @thm-blue;
+}
