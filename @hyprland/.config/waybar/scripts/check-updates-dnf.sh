@@ -7,10 +7,8 @@
 #  \_| \___|\__,_|\___/|_|  \__,_|
 #  
 # =========================================== 
-# check-updates-fedora.sh                                 
+#  check-updates-dnf.sh                                 
 # =========================================== 
-
-
 # Get the count of updates, as well as security updates.
 # NOTE: This only works on Fedora.
 all_updates=$(dnf check-update --quiet | wc -l)
