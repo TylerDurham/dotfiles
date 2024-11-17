@@ -2,6 +2,12 @@
 
 My `dotfiles`. I use [stow] to manage.
 
+# Dependancies
+
+```sh
+sudo dnf hyprland hyprland-devel
+```
+
 # Packages
 
 ## @sway

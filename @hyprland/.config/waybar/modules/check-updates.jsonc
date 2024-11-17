@@ -1,0 +1,7 @@
+{
+  "custom/check-updates-dnf": {
+    "exec": "~/.config/waybar/scripts/check-updates-dnf.sh",
+    "restart-interval": 120,
+    "return-type": "json"
+  }
+}
