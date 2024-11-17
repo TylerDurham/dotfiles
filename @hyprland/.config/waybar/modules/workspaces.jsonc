@@ -3,7 +3,7 @@
           "disable-scroll": true,
           "all-outputs": false,
           "warp-on-scroll": true,
-          "format": "{name}: {icon}",
+          "format": "{name}", //: {icon}",
           "format-icons": {
               "0": "🎜",
               "1": "",
