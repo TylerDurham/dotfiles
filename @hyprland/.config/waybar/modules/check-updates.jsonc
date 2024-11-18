@@ -4,6 +4,7 @@
     "restart-interval": 120,
     "return-type": "json",
     "tooltip": true,
-    "on-click": "thunar"
+    "on-click": "thunar",
+    "format": " {}"
   }
 }

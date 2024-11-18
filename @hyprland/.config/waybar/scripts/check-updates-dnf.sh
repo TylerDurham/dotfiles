@@ -44,5 +44,7 @@ if [[ $sec_updates -gt 0 ]]; then
   cssclass=$MAX_THRESHOLD_CLASS
 fi
 
-printf '{ "text": "%s", "alt": "%s", "toolip": "%s", "class": "%s" }' "$all_updates" "$all_updates" "$tooltip" "$cssclass"
+#printf '{ "text": "%s", "alt": "%s", "toolip": "test %s", "class": "%s" }' "$all_updates" "$all_updates" "$tooltip" "$cssclass"
+
+echo "{ \"text\": \"$all_updates\", \"tooltip\": \"$tooltip\", \"class\": \"$cssclass\" }"
 
