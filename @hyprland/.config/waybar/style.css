@@ -8,7 +8,13 @@
 
 .max {}
 
-.module {}
+.modules-left,
+.modules-center,
+.modules-right {
+
+  background-color: @thm-bg;
+  border: solid 5px rgba(255, 255, 255, 0.1);
+}
 
 .modules-left {
   margin-top: 10px;
@@ -16,14 +22,12 @@
 }
 
 .modules-left button {
-  border: solid 5px rgba(255, 255, 255, 0.1);
   padding-left: 10px;
   padding-right: 10px;
   margin-left: 10px;
 }
 
 .modules-center {
-  border: solid 5px rgba(255, 255, 255, 0.1);
   padding-right: 11px;
   padding-left: 11px;
   margin-top: 10px;
@@ -31,7 +35,6 @@
 }
 
 .modules-right {
-  border: solid 5px rgba(255, 255, 255, 0.1);
   padding-right: 10px;
   padding-left: 10px;
   margin-top: 10px;

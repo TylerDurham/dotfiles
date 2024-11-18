@@ -3,6 +3,7 @@
     "position": "top",
     "spacing": 10,
     "include": [
+        "~/.config/waybar/modules/bluetooth.jsonc",
         "~/.config/waybar/modules/check-updates.jsonc",
         "~/.config/waybar/modules/clock.jsonc",
         "~/.config/waybar/modules/cpu.jsonc",
@@ -22,6 +23,7 @@
       "custom/restart-waybar",
       "custom/check-updates",
       "power-profiles-daemon",
+      "bluetooth",
       "clock",
       "custom/shutdown"
     ]
