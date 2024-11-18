@@ -1,0 +1,7 @@
+{
+  "custom/shutdown": {
+    "tooltip": "Shutdown",
+    "on-click": "~/.config/waybar/scripts/shutdown.sh",
+    "format": " "
+  }
+}
