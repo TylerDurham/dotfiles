@@ -11,6 +11,7 @@
         "~/.config/waybar/modules/power-profiles-daemon.jsonc",
         "~/.config/waybar/modules/restart-waybar.jsonc",
         "~/.config/waybar/modules/shutdown.jsonc",
+        "~/.config/waybar/modules/wallpaper.jsonc",
         "~/.config/waybar/modules/workspaces.jsonc"
     ],
     "modules-left": [
@@ -21,6 +22,7 @@
     ],
     "modules-right": [
       "custom/restart-waybar",
+      "custom/wallpaper",
       "custom/check-updates",
       "power-profiles-daemon",
       "bluetooth",

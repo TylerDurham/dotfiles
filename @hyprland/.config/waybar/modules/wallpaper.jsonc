@@ -1,0 +1,7 @@
+{
+    "custom/wallpaper": {
+        "on-click": "~/.config/waybar/scripts/wallpaper.sh",
+        "format": "",
+        "tooltip-format": "Random wallpaper"
+    }
+}
