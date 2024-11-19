@@ -8,10 +8,10 @@
         "~/.config/waybar/modules/clock.jsonc",
         "~/.config/waybar/modules/cpu.jsonc",
         "~/.config/waybar/modules/memory.jsonc",
-        "~/.config/waybar/modules/power-profiles-daemon.jsonc",
         "~/.config/waybar/modules/restart-waybar.jsonc",
         "~/.config/waybar/modules/shutdown.jsonc",
         "~/.config/waybar/modules/wallpaper.jsonc",
+        "~/.config/waybar/modules/window.jsonc",
         "~/.config/waybar/modules/workspaces.jsonc"
     ],
     "modules-left": [

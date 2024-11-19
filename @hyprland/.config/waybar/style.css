@@ -13,12 +13,12 @@
 .modules-right {
 
   background-color: @thm-bg;
-  border: solid 5px rgba(255, 255, 255, 0.1);
+  border: solid 3px rgba(255, 255, 255, 0.1);
 }
 
 .modules-left {
   margin-top: 10px;
-  margin-left: 11px;
+  margin-left: 15px;
 }
 
 .modules-left button {
@@ -43,29 +43,32 @@
 
 #workspaces button {}
 
-window#waybar {
-  background-color: transparent;
-  margin: 10px;
-}
+#window {
 
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: black;
+
+  window#waybar {
+    background-color: transparent;
+    margin: 10px;
   }
-}
 
-#clock,
-#cpu,
-#memory,
-#power-profile-daemon,
-#custom-shutdown {
-  padding-left: 4px;
-  padding-right: 4px;
-}
+  @keyframes blink {
+    to {
+      background-color: #ffffff;
+      color: black;
+    }
+  }
 
-#custom-shutdown {
-  padding-right: 14px;
-  padding-left: 9px;
-  margin-left: 10px;
-}
+  #clock,
+  #cpu,
+  #memory,
+  #power-profile-daemon,
+  #custom-shutdown {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  #custom-shutdown {
+    padding-right: 14px;
+    padding-left: 9px;
+    margin-left: 10px;
+  }
