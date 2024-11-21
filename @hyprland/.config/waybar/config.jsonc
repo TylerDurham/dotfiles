@@ -11,6 +11,8 @@
         "~/.config/waybar/modules/memory.jsonc",
         "~/.config/waybar/modules/restart-waybar.jsonc",
         "~/.config/waybar/modules/shutdown.jsonc",
+        "~/.config/waybar/modules/taskbar.jsonc",
+        "~/.config/waybar/modules/tray.jsonc",
         "~/.config/waybar/modules/wallpaper.jsonc",
         "~/.config/waybar/modules/window.jsonc",
         "~/.config/waybar/modules/workspaces.jsonc"
@@ -20,7 +22,8 @@
         "keyboard-state"
     ],
     "modules-center": [
-      "hyprland/window"
+      "hyprland/window",
+      "wlr/taskbar"
     ],
     "modules-right": [
       "custom/restart-waybar",
@@ -29,6 +32,8 @@
       "power-profiles-daemon",
       "bluetooth",
       "clock",
-      "custom/shutdown"
+      "custom/shutdown",
+      "tray"
     ]
 }
+
