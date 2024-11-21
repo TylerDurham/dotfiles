@@ -56,6 +56,12 @@ To uninstall, symply remove the symbolic links in your `~/.config` directory or 
 ./uninstall
 ```
 
+# Troubleshooting Waybar
+
+```sh
+env GTK_DEBUG=interactive waybar -l trace
+```
+
 [dunst]: https://dunst-project.org/
 [GNU]: https://www.gnu.org/
 [stow]: https://www.gnu.org/software/stow/
