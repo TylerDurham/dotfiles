@@ -43,32 +43,43 @@
 
 #workspaces button {}
 
-#window {
+#window {}
 
+window#waybar {
+  background-color: transparent;
+  margin: 10px;
+}
 
-  window#waybar {
-    background-color: transparent;
-    margin: 10px;
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: black;
   }
+}
 
-  @keyframes blink {
-    to {
-      background-color: #ffffff;
-      color: black;
-    }
-  }
+#clock,
+#cpu,
+#memory,
+#power-profile-daemon,
+#custom-shutdown {
+  padding-left: 4px;
+  padding-right: 4px;
+}
 
-  #clock,
-  #cpu,
-  #memory,
-  #power-profile-daemon,
-  #custom-shutdown {
-    padding-left: 4px;
-    padding-right: 4px;
-  }
+#custom-shutdown {
+  padding-right: 14px;
+  padding-left: 9px;
+  margin-left: 10px;
+}
 
-  #custom-shutdown {
-    padding-right: 14px;
-    padding-left: 9px;
-    margin-left: 10px;
-  }
+#keyboard-state label {
+  color: @thm-gray;
+  padding: 5px;
+  margin: 5px;
+  border: solid 1px transparent;
+}
+
+#keyboard-state label.locked {
+  color: @thm-blue;
+  border: solid 1px @thm-blue;
+}

@@ -7,6 +7,7 @@
         "~/.config/waybar/modules/check-updates.jsonc",
         "~/.config/waybar/modules/clock.jsonc",
         "~/.config/waybar/modules/cpu.jsonc",
+        "~/.config/waybar/modules/keyboard-state.jsonc",
         "~/.config/waybar/modules/memory.jsonc",
         "~/.config/waybar/modules/restart-waybar.jsonc",
         "~/.config/waybar/modules/shutdown.jsonc",
@@ -15,7 +16,8 @@
         "~/.config/waybar/modules/workspaces.jsonc"
     ],
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "keyboard-state"
     ],
     "modules-center": [
       "hyprland/window"

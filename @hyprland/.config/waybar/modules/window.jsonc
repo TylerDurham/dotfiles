@@ -1,0 +1,10 @@
+{
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Brave": " $1",
+      "(.*) - Spotify Premium": " $1",
+      "zsh in (.*)": "> in [$1]"
+    }
+  }
+}
