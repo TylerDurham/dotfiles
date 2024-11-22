@@ -2,6 +2,8 @@
     "custom/wallpaper": {
         "on-click": "~/.config/waybar/scripts/wallpaper.sh",
         "format": "",
+        "exec": "~/.config/waybar/scripts/wallpaper.sh",
+        "interval": 300,
         "tooltip-format": "Random wallpaper"
     }
 }
