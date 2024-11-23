@@ -22,7 +22,8 @@
         "keyboard-state"
     ],
     "modules-center": [
-      "hyprland/window",
+      //"hyprland/window",
+      "clock",
       "wlr/taskbar"
     ],
     "modules-right": [
@@ -31,7 +32,6 @@
       "custom/check-updates",
       //"power-profiles-daemon",
       //"bluetooth",
-      "clock",
       "custom/shutdown",
       "tray"
     ]

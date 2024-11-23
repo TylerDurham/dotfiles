@@ -64,9 +64,13 @@ window#waybar {
 #custom-quick-commands,
 #custom-check-updates,
 #custom-shutdown {
-  padding-left: 4px;
-  padding-right: 4px;
-  font-size: 15px
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 18px;
+}
+
+#clock {
+  font-size: 16px;
 }
 
 #keyboard-state label {
