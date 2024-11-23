@@ -9,7 +9,7 @@
         "~/.config/waybar/modules/cpu.jsonc",
         "~/.config/waybar/modules/keyboard-state.jsonc",
         "~/.config/waybar/modules/memory.jsonc",
-        "~/.config/waybar/modules/restart-waybar.jsonc",
+        "~/.config/waybar/modules/quick-commands.jsonc",
         "~/.config/waybar/modules/shutdown.jsonc",
         "~/.config/waybar/modules/taskbar.jsonc",
         "~/.config/waybar/modules/tray.jsonc",
@@ -26,7 +26,7 @@
       "wlr/taskbar"
     ],
     "modules-right": [
-      "custom/restart-waybar",
+      "custom/quick-commands",
       "custom/wallpaper",
       "custom/check-updates",
       "power-profiles-daemon",
