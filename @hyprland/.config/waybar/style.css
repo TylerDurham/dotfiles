@@ -17,7 +17,7 @@
 }
 
 .modules-left {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-left: 15px;
 }
 
@@ -30,14 +30,14 @@
 .modules-center {
   padding-right: 11px;
   padding-left: 11px;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-right: 19px;
 }
 
 .modules-right {
   padding-right: 10px;
   padding-left: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
   margin-right: 19px;
 }
 
@@ -61,15 +61,12 @@ window#waybar {
 #cpu,
 #memory,
 #power-profile-daemon,
+#custom-quick-commands,
+#custom-check-updates,
 #custom-shutdown {
   padding-left: 4px;
   padding-right: 4px;
-}
-
-#custom-shutdown {
-  padding-right: 14px;
-  padding-left: 9px;
-  margin-left: 10px;
+  font-size: 15px
 }
 
 #keyboard-state label {
