@@ -1,7 +1,7 @@
 {
     "custom/quick-commands": {
         "on-click": "~/.config/waybar/scripts/quick-commands.py -p",
-        "format": "",
+        "format": "",
         "tooltip-format": "Quick Commands"
     }
 }
