@@ -29,8 +29,8 @@
       "custom/quick-commands",
       "custom/wallpaper",
       "custom/check-updates",
-      "power-profiles-daemon",
-      "bluetooth",
+      //"power-profiles-daemon",
+      //"bluetooth",
       "clock",
       "custom/shutdown",
       "tray"
