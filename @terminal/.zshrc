@@ -79,3 +79,13 @@ clear
 
 # Why not? Why SHOULDN'T I run neofetch?
 fastfetch
+
+# Python & PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+export PYTHON_CONFIGURE_OPTS='--enable-optimizations --with-lto'
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
