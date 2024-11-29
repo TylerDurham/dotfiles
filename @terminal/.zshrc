@@ -89,3 +89,4 @@ export PYTHON_CONFIGURE_OPTS='--enable-optimizations --with-lto'
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 zstyle ':completion:*' menu select
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
