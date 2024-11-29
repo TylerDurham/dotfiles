@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*- //
 {
     "position": "top",
-    "spacing": 10,
+    "spacing": 5,
     "include": [
         "~/.config/waybar/modules/bluetooth.jsonc",
         "~/.config/waybar/modules/check-updates.jsonc",
@@ -25,12 +25,12 @@
     "modules-center": [
       //"hyprland/window",
       "clock",
-      "wlr/taskbar"
+      "wlr/taskbar",
+      "custom/check-updates"
     ],
     "modules-right": [
       "custom/quick-commands",
       "custom/wallpaper",
-      "custom/check-updates",
       "power-profiles-daemon",
       //"bluetooth",
       "custom/shutdown",
