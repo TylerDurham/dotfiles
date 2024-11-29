@@ -10,6 +10,7 @@
         "~/.config/waybar/modules/keyboard-state.jsonc",
         "~/.config/waybar/modules/memory.jsonc",
         "~/.config/waybar/modules/quick-commands.jsonc",
+        "~/.config/waybar/modules/power-profiles-daemon.jsonc",
         "~/.config/waybar/modules/shutdown.jsonc",
         "~/.config/waybar/modules/taskbar.jsonc",
         "~/.config/waybar/modules/tray.jsonc",
@@ -30,7 +31,7 @@
       "custom/quick-commands",
       "custom/wallpaper",
       "custom/check-updates",
-      //"power-profiles-daemon",
+      "power-profiles-daemon",
       //"bluetooth",
       "custom/shutdown",
       "tray"
