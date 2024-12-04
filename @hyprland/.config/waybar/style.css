@@ -2,7 +2,6 @@
 
 * {
   font-family: 'Font Awesome', monospace;
-  color: @thm-fg;
 }
 
 #clock,
@@ -55,4 +54,25 @@
 
 #waybar {
   background-color: transparent;
+}
+
+#workspaces button {
+  margin: 5px;
+  color: @thm-fg;
+  border-radius: 5px;
+}
+
+#workspaces button:hover {
+  background-color: @thm-pink;
+  color: @thm-bg;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+  border-bottom-color: @thm-green;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-top-color: @thm-green;
+  border-top-width: 1px;
+  border-top-style: solid;
 }
