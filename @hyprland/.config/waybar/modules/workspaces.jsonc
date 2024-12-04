@@ -3,15 +3,13 @@
           "disable-scroll": true,
           "all-outputs": false,
           "warp-on-scroll": true,
-          "format": "{name}", //: {icon}",
+          "format": "{}", 
+          "onclick": "activate",
           "format-icons": {
-              "0": "🎜",
-              "1": "",
-              "2": "",
-              "3": "🗁:",
-              "4": "",
-              "urgent": ""
-          },
+            "urgent": "",
+            "active": "",
+            "default": ""
+          },          
           "persistent-workspaces": {
               "0": [
                   "HDMI-A-1"
