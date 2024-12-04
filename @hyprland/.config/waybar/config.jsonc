@@ -1,6 +1,7 @@
 // -*- mode: jsonc -*- //
 {
     "position": "top",
+    "height": 55,
     "spacing": 5,
     "include": [
         "~/.config/waybar/modules/bluetooth.jsonc",
