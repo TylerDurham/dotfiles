@@ -19,5 +19,7 @@
                 "",
                 ""
             ]
-        }
+        },
+        "on-click": "pavucontrol"
   }
+}
