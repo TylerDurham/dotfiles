@@ -77,9 +77,6 @@ export GPG_TTY=$(tty)
 
 clear
 
-# Why not? Why SHOULDN'T I run neofetch?
-fastfetch
-
 # Python & PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
