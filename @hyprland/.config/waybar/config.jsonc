@@ -26,18 +26,17 @@
     ],
     "modules-center": [
       //"hyprland/window",
-      "clock",
       "wlr/taskbar",
-      "custom/check-updates",
       "pulseaudio"
     ],
     "modules-right": [
+      "clock",
       "custom/quick-commands",
       "custom/wallpaper",
       "power-profiles-daemon",
-      //"bluetooth",
       "custom/shutdown",
-      "tray"
+      "tray",
+      "custom/check-updates"
     ]
 }
 
