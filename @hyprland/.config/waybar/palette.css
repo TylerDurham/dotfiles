@@ -7,8 +7,8 @@
 @define-color thm-pink #f5c2e7;
 @define-color thm-red #f38ba8;
 @define-color thm-green #a6e3a1;
+@define-color thm-trans-green rgba(65, 89, 63, .9);
 @define-color thm-yellow #f9e2af;
 @define-color thm-blue #89b4fa;
 @define-color thm-orange #fab387;
 @define-color thm-black4 #585b70;
-
