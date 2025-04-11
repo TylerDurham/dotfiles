@@ -2,12 +2,23 @@
 
 START_DIR=$1
 SESSION="DEVELOPMENT"
+
+if [ -z $START_DIR ]; then
+  START_DIR=~/Development/dotfiles  
+fi
+
+if [ ! -d $START_DIR ]; then
+  echo "Connot start tmux session: Start directory '$START_DIR' does not exist!"
+  exit 1
+fi
+
+echo "Moving to $START_DIR..."
+cd "$START_DIR"
+
+sleep .5
+
 SESSIONEXISTS=$(tmux list-sessions | grep $SESSION)
 
-if [ -d $START_DIR ]; then
-  echo "Moving to $START_DIR..."
-  cd $START_DIR
-fi
 
 if [ "$SESSIONEXISTS" = "" ]
 then
