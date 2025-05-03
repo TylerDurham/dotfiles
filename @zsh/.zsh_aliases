@@ -168,8 +168,8 @@ check_font() {
   local font="$1"
   local mode="${2:-recommended}"  # Default to 'warn' if not specified
 
-  installed=$(fc-list $font | grep -ic "$font") # >/dev/null 2>&1
-  if [ $installed -eq 1 ]; then
+  count=$(fc-list | grep -ic "FiraCode")
+  if [ $count -eq 0 ]; then
     warn "$(blue "$font") font is not installed. Terminal look might be unsightly."
   fi
 }
