@@ -21,4 +21,3 @@ if [[ "$(uname)" == "Darwin" ]]; then
 else
 	source ~/.zsh_linux
 fi
-ns
