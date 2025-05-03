@@ -13,4 +13,12 @@ source ~/.zsh_aliases
 
 check_recommended_commands
 
-source ~/.zsh_plugins
+source ~/.zsh_plugi
+
+# OS specific configs
+if [[ "$(uname)" == "Darwin" ]]; then
+	source ~/.zsh_macos
+else
+	source ~/.zsh_linux
+fi
+ns
