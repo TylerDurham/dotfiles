@@ -125,6 +125,7 @@ declare -a RECOMMENDED_COMMANDS=(
     "tree"
     "node"
     "figlet"
+    "starship"
 )
 
 check_command() {
