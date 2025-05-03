@@ -13,7 +13,7 @@ source ~/.zsh_aliases
 
 check_recommended_commands
 
-source ~/.zsh_plugi
+source ~/.zsh_plugins
 
 # OS specific configs
 if [[ "$(uname)" == "Darwin" ]]; then
