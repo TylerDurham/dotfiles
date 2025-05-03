@@ -14,6 +14,13 @@ alias cls=clear
 alias tsc="./node_modules/.bin/tsc"
 
 # ==========================================================================================
+# 
+# ENV VARIABLES
+# ========================================================================================== 
+
+export MY_NERD_FONT=FiraCode
+
+# ==========================================================================================
 # LSD
 # ========================================================================================== 
 
@@ -155,5 +162,15 @@ check_recommended_commands() {
     check_command $item warning
     # echo $item
   done
+}
+
+check_font() {
+  local font="$1"
+  local mode="${2:-recommended}"  # Default to 'warn' if not specified
+  fc-list $font | grep -ic "$font" >/dev/null 2>&1
+
+  if [ $? -eq 0 ]; then
+    warn "$(blue "$font") font is not installed. Terminal look might be unsightly."
+  fi
 }
 
