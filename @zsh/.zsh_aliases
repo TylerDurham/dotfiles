@@ -133,6 +133,7 @@ declare -a RECOMMENDED_COMMANDS=(
     "node"
     "figlet"
     "starship"
+    "pass"
 )
 
 check_command() {
