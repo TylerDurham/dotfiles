@@ -140,6 +140,8 @@ check_command() {
     if [ "$mode" = "required" ]; then
       error "$(yellow $program) is required but not installed."
       return 1
+    elif [[ "$mode" = "silent" ]]; then
+      return 127
     else
       warn "$(blue $program) is recommended but not installed."
       return 127
@@ -149,7 +151,7 @@ check_command() {
 
 check_recommended_commands() {
   for item in "${RECOMMENDED_COMMANDS[@]}"; do
-    check_command $item
+    check_command $item warning
     # echo $item
   done
 }

@@ -18,7 +18,7 @@ fi
 # ==========================================================================================
 # STARSHIP
 #=========================================================================================
-check_command starship
+check_command starship silent
 if [[ $? -eq 0 ]]; then
   eval "$(starship init zsh)"
   export STARSHIP_CONFIG=~/.config/starship/starship.toml
@@ -28,7 +28,7 @@ fi
 # FZF
 # ==========================================================================================
 # Set up fzf key bindings and fuzzy completion
-check_command fzf
+check_command fzf silent
 if [ $? -eq 0 ]; then
 
   source <(fzf --zsh)
