@@ -1,0 +1,11 @@
+
+if [[ ! -d ~/.gnupg ]]; then
+  mkdir ~/.gnupg  
+fi
+
+# pinentry
+check_command pinentry-mac
+
+if [[ $? -eq 0 ]]; then
+  echo "pinentry-program /opt/homebrew/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
+fi
