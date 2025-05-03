@@ -1,0 +1,41 @@
+# _______ __   __        _______  ______ ______    _____  _____ 
+#    |      \_/   |      |______ |_____/ |     \     |   |     |
+#    |       |    |_____ |______ |    \_ |_____/ . __|__ |_____|
+#
+# ==========================================================================================
+# All aliases.
+
+# ==========================================================================================
+# UTILITY 
+# ==========================================================================================
+# ENV VARIABLES
+alias cls=clear
+alias startgnome="sudo systemctl start gdm" # TODO: Need to move this to linux
+alias tsc="./node_modules/.bin/tsc"
+
+# ==========================================================================================
+# LSD
+# ========================================================================================== 
+
+alias ls='lsd --icon auto'
+alias l='lsd --icon auto -lh'
+alias ll='lsd --icon auto -lah'
+alias la='lsd --icon auto -A'
+alias lm='lsd --icon auto -m'
+alias lr='lsd --icon auto -R'
+alias lg='lsd --icon auto -l --group-directories-first'
+
+# ==========================================================================================
+# GIT
+# ========================================================================================== 
+alias gcl='git clone --depth 1'
+alias gi='git init'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push origin main'
+alias gca='git commit -a'
+alias gs='git status'
+
+
+
+
