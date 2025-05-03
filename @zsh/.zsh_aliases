@@ -66,6 +66,107 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:$COLOR_SELECTED_BG \
 --color=border:$COLOR_BORDER,label:$COLOR_LABEL"
 
+# ==========================================================================================
+# UTILITY FUNCTIONS
+# ==========================================================================================
+
+run_daily() {
+
+  # Check if a command was provided
+  if [[ -z "$1" ]]; then
+    echo "Usage: run_daily 'command to run'"
+    return 1
+  fi
+
+  local command_to_run="$1"
+
+  # Get the current date in YYYY-MM-DD format
+  local current_date=$(date +%Y-%m-%d)
+  local last_run_dir="$HOME/tmp"
+  local last_run_file="$last_run_dir/daily-run-$1.tmp"
+
+  # echo $last_run_file
+
+  # Make the temp directory if it doesn't exist
+  if [[ ! -d "$last_run_dir" ]]; then
+    mkdir -p $last_run_dir
+  fi
+  
+  # Check if the file exists and read the last run date
+  if [[ -f "$last_run_file" ]]; then
+    local last_run_date=$(cat "$last_run_file")
+    
+    # If the dates are the same, don't run the command
+    if [[ "$current_date" == "$last_run_date" ]]; then
+      return 0
+    fi
+
+  fi
+  
+  # Run the command
+  eval "$command_to_run"
+  
+  # Update the last run date
+  echo "$current_date" > "$last_run_file"
+
+}
+
+# Example usage:
+# run_daily "echo 'This command runs once per day'"
+#
+
+red() {
+	echo "\033[1;31m$1\033[0m"	
+}
+
+blue() {
+	echo "\033[1;34m$1\033[0m"
+}
+
+cyan() {
+	echo "\033[1;81m$1\033[0m"
+}
+
+yellow() {
+	echo "\033[1;93m$1\033[0m"
+}
+
+declare -a RECOMMENDED_COMMANDS=(
+    "fzf"
+    "git"
+    "lsd"
+    "nvim"
+    "oh-my-posh"
+    "rg"
+    "stow"
+    "tmux"
+    "tree"
+    "node"
+    "figlet"
+)
+
+check_command() {
+  local program="$1"
+  local mode="${2:-warn}"  # Default to 'warn' if not specified
+
+  if ! command -v "$program" >/dev/null 2>&1; then
+    if [ "$mode" = "fatal" ]; then
+      echo "$(red "[ERROR]") $(yellow $program) is required but not installed." >&2
+      return 1
+    else
+      echo "$(yellow "[WARNING]") $(blue $program) is not installed." >&2
+      return 127
+    fi
+  fi
+}
+
+check_recommended_commands() {
+  for item in "${RECOMMENDED_COMMANDS[@]}"; do
+    check_command $item
+    # echo $item
+  done
+}
+
 
 
 
