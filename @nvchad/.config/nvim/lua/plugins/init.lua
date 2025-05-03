@@ -12,7 +12,21 @@ return {
       require "configs.lspconfig"
     end,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function(_, opts)
+      -- Modify existing options
+      opts.defaults.hidden = true
 
+      -- Modify picker-specific settings
+      opts.pickers = opts.pickers or {}
+      opts.pickers.find_files = vim.tbl_deep_extend("force", opts.pickers.find_files or {}, {
+        hidden = true,
+      })
+
+      return opts
+    end,
+  }
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
