@@ -1,2 +1,2 @@
 stow -S @tmux -t ~/
-~/.config/tmux/plugins/tpm/tpm
+#~/.config/tmux/plugins/tpm/tpm
