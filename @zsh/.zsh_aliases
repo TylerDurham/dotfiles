@@ -131,6 +131,17 @@ yellow() {
 	echo "\033[1;93m$1\033[0m"
 }
 
+error() {
+  msg=$1
+  prefix="$(red "[ERROR]")"
+  echo $prefix $msg >&2
+}
+warn() {
+  msg=$1
+  prefix="$(yellow "[WARNING]")"
+  echo $prefix $msg >&2
+}
+
 declare -a RECOMMENDED_COMMANDS=(
     "fzf"
     "git"
@@ -147,14 +158,19 @@ declare -a RECOMMENDED_COMMANDS=(
 
 check_command() {
   local program="$1"
-  local mode="${2:-warn}"  # Default to 'warn' if not specified
+  local mode="${2:-recommended}"  # Default to 'warn' if not specified
+
+  if [[ ! -n $1 ]]; then
+    error "Please specify a command to check for!"
+    return 1
+  fi
 
   if ! command -v "$program" >/dev/null 2>&1; then
-    if [ "$mode" = "fatal" ]; then
-      echo "$(red "[ERROR]") $(yellow $program) is required but not installed." >&2
+    if [ "$mode" = "required" ]; then
+      error "$(yellow $program) is required but not installed."
       return 1
     else
-      echo "$(yellow "[WARNING]") $(blue $program) is not installed." >&2
+      warn "$(blue $program) is recommended but not installed."
       return 127
     fi
   fi
