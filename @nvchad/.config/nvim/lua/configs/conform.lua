@@ -1,8 +1,9 @@
 local options = {
     formatters_by_ft = {
         lua = { "stylua" },
-        sh = { "shfmt" },
-        zsh = { "shfmt" },
+        -- FIX: Issues with treesitter not opening shell scripts.
+        -- sh = { "shfmt" },
+        -- zsh = { "shfmt" },
         md = { "markdown", "markdown_inline" },
     },
 
