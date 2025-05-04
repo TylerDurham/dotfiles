@@ -1,7 +1,10 @@
 local options = {
     ensure_installed = {
-        "bash",
-        "zsh",
+
+        -- FIX: Issues with treesitter not opening shell scripts.
+        -- "bash",
+        -- FIX: This is causing an error on adding a new parser.
+        -- "zsh",
         "fish",
         "lua",
         "luadoc",
@@ -10,7 +13,7 @@ local options = {
         "toml",
         "vim",
         "vimdoc",
-        "shfmt",
+        -- "shfmt",
         "yaml",
     },
 
