@@ -9,7 +9,7 @@
 #
 ###########################################################################################
 
-source ~/.zsh_aliases
+   source ~/.zsh_aliases
 
 check_recommended_commands
 

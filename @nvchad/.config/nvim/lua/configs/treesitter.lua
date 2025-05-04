@@ -10,6 +10,7 @@ local options = {
         "toml",
         "vim",
         "vimdoc",
+        "shfmt",
         "yaml",
     },
 
