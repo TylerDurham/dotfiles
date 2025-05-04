@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles 
 
 ## Prerequisites
 
@@ -6,13 +6,14 @@
 - Starship
 - fc-list
 - ripgrep
-- fzf
+- mmf
 - git
 - lsd
 - tmux
 - FiraCode
 
-``` shell
+~~~ shell
 fc-list | grep -i "FiraCode"
+~~~
 
-```
+> [!Hubie] This is a test.
