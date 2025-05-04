@@ -22,6 +22,11 @@ return {
 
         local keymap = vim.keymap
 
-        keymap.set("n", "<leader>rm", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle RenderMarkdown on or off" })
+        keymap.set(
+            "n",
+            "<leader>rm",
+            "<cmd>RenderMarkdown toggle<CR>",
+            { desc = "Toggle (R)ender(M)arkdown on or off" }
+        )
     end,
 }
