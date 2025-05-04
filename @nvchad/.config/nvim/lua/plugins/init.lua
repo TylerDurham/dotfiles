@@ -42,4 +42,15 @@ return {
             },
         },
     },
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+            "mfussenegger/nvim-dap-python",
+            "nvim-neotest/nvim-nio",
+        },
+        config = function()
+            require "configs.dap"
+        end,
+    },
 }
