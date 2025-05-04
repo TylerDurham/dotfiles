@@ -1,6 +1,7 @@
 local options = {
     ensure_installed = {
         "bash",
+        "zsh",
         "fish",
         "lua",
         "luadoc",

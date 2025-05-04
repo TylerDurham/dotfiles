@@ -1,6 +1,8 @@
 local options = {
     formatters_by_ft = {
         lua = { "stylua" },
+        sh = { "shfmt" },
+        zsh = { "shfmt" },
     },
 
     format_on_save = {

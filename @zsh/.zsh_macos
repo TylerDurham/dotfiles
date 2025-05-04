@@ -1,18 +1,18 @@
 ###########################################################################################
-#  ___  ____ _  _    ____ ____ ____    _  _ ____ ____ ____ ____ 
-#    /  [__  |__|    |___ |  | |__/    |\/| |__| |    |  | [__  
-# . /__ ___] |  |    |    |__| |  \    |  | |  | |___ |__| ___] 
+#  ___  ____ _  _    ____ ____ ____    _  _ ____ ____ ____ ____
+#    /  [__  |__|    |___ |  | |__/    |\/| |__| |    |  | [__
+# . /__ ___] |  |    |    |__| |  \    |  | |  | |___ |__| ___]
 #
 ###########################################################################################
 # TODO: Add git authn using pass.
 
 if [[ ! -d ~/.gnupg ]]; then
-  mkdir ~/.gnupg  
+    mkdir ~/.gnupg
 fi
 
 # pinentry
 check_command pinentry-mac silent
 
 if [[ $? -eq 0 ]]; then
-  echo "pinentry-program /opt/homebrew/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
+    echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >~/.gnupg/gpg-agent.conf
 fi

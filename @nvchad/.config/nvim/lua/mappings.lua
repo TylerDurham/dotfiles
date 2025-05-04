@@ -1,4 +1,4 @@
-require "nvchad.mappings"
+require("nvchad.mappings")
 
 -- add yours here
 
@@ -11,3 +11,10 @@ map("i", "jj", "<ESC>")
 map("n", "ft", "<cmd> TodoTelescope <CR>", { desc = "Telescope find todo's" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = { "*.sh", "*.zsh" },
+    callback = function(args)
+        require("conform").format({ bufnr = args.buf })
+    end,
+})

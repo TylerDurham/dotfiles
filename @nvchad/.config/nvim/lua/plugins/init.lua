@@ -1,16 +1,19 @@
 return {
     {
-        "stevearc/conform.nvim",
-        event = "BufWritePre", -- uncomment for format on save
-        config = function()
-            require("configs.conform")
-        end,
-    },
-    {
         "nvim-treesitter/nvim-treesitter",
+        --- Load treesitter when we read a file or create open a file.
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             require("configs.treesitter")
+        end,
+    },
+    {
+        "stevearc/conform.nvim",
+        --- Loads conform.nvim during these event(s).
+        event = "BufWritePre",
+        config = function()
+            --- Calls the config to perform the rest of setup.
+            require("configs.conform")
         end,
     },
     -- These are some examples, uncomment them if you want to see them work!
