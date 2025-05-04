@@ -3,6 +3,7 @@ local options = {
         lua = { "stylua" },
         sh = { "shfmt" },
         zsh = { "shfmt" },
+        md = { "markdown" },
     },
 
     format_on_save = {
