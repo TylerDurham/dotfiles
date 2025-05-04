@@ -134,6 +134,7 @@ declare -a RECOMMENDED_COMMANDS=(
     "figlet"
     "starship"
     "pass"
+    "luarocks"
 )
 
 check_command() {
