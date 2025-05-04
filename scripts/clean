@@ -1,0 +1,4 @@
+rm -rf ~/.config/tmux
+rm -rf @tmux/.config/tmux/plugins/
+rm -rf @tmux/.config/tmux/plugins/tpm
+mkdir -p @tmux/.config/tmux/plugins
