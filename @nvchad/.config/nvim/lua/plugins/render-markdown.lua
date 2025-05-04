@@ -4,6 +4,7 @@ ____ ____ _  _ ___  ____ ____    _  _ ____ ____ _  _ ___  ____ _ _ _ _  _
 |  \ |___ | \| |__/ |___ |  \    |  | |  | |  \ | \_ |__/ |__| |_|_| | \| 
 
 NOTE: More info at https://github.com/MeanderingProgrammer/render-markdown.nvim/wiki
+
 --]]
 return {
     "MeanderingProgrammer/render-markdown.nvim",
