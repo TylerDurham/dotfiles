@@ -15,6 +15,25 @@ if [[ ! -f ~/.config/tmux/plugins/tpm/tpm && -d ~/.config/tmux ]]; then
 fi
 
 # ==========================================================================================
+# ZNAP PLUGIN MANAGEMENT
+# ==========================================================================================
+
+# Download Znap, if it's not there yet.
+[[ -r ~/.config/zsh/znap/znap.zsh ]] ||
+    git clone --depth 1 https://github.com/marlonrichert/zsh-snap.git ~/.config/zsh/znap
+
+# Start Znap
+source ~/.config/zsh/znap/znap.zsh  
+
+# zsh completions directory
+fpath=(~/.config/zsh/znap/completions $fpath)
+
+# Load plugins (repos)
+znap source zsh-users/zsh-autosuggestions	# Auto suggestions
+znap source zsh-users/zsh-completions		# Auto completions
+znap source zsh-users/zsh-syntax-highlighting	# Syntax highlighting
+
+# ==========================================================================================
 # STARSHIP
 #=========================================================================================
 check_command starship silent

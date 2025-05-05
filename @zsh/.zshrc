@@ -9,15 +9,15 @@
 #
 ###########################################################################################
 
-   source ~/.zsh_aliases
+   source ~/.config/zsh/.zsh_aliases
 
 check_recommended_commands
 
-source ~/.zsh_plugins
+source ~/.config/zsh/.zsh_plugins
 
 # OS specific configs
 if [[ "$(uname)" == "Darwin" ]]; then
-	source ~/.zsh_macos
+	source ~/.config/zsh/.zsh_macos
 else
-	source ~/.zsh_linux
+	source ~/.config/zsh/.zsh_linux
 fi
