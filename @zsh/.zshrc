@@ -21,3 +21,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
 else
 	source ~/.config/zsh/.zsh_linux
 fi
+
+# ===========================================================================================
+# ENV VARIABLES
+# ===========================================================================================
+export XDG_CONFIG_HOME="$HOME/.config"                        # CONFIG HOME
+export EDITOR="nvim"
