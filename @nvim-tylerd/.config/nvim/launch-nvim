@@ -1,0 +1,4 @@
+
+DIR="${PWD%/*}"
+echo "Launcing NeoVim from $DIR"
+XDG_CONFIG_HOME="$DIR" nvim
