@@ -1,7 +1,7 @@
 return {
 	--I got annoyed so I just stopped using it for a bit
 	"folke/which-key.nvim",
-    enabled = false,
+    enabled = true,
 	event = "VeryLazy",
 	init = function()
 	    vim.o.timeout = true
@@ -14,7 +14,7 @@ return {
         {
             "<leader>?",
             function()
-                require("which-key").show({ global = false })
+                require("which-key").show({ global = true })
             end,
             desc = "Buffer Local Keymaps (which-key)",
         },

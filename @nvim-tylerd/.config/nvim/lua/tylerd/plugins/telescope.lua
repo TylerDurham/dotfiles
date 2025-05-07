@@ -1,3 +1,4 @@
+-- https://github.com/nvim-telescope/telescope.nvim
 return {
 	"nvim-telescope/telescope.nvim",
 	branch = "0.1.x",
@@ -25,6 +26,11 @@ return {
 					},
 				},
 			},
+            pickers = {
+                find_files = {
+                    hidden = true,
+                },
+            },
 			extensions = {
 				themes = {
 					enable_previewer = true,
@@ -38,6 +44,7 @@ return {
 		})
 
 		-- Keymaps
+        vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc="Fuzzy find all files." } )
 		vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Fuzzy find recent files" })
 		vim.keymap.set("n", "<leader>fw", function()
 			local word = vim.fn.expand("<cWORD>")
