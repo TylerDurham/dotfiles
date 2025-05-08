@@ -43,6 +43,7 @@ return {
 			},
 		})
 
+
 		-- Keymaps
         vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc="Fuzzy find all files." } )
 		vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "Fuzzy find recent files" })
