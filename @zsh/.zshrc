@@ -27,3 +27,5 @@ fi
 # ===========================================================================================
 export XDG_CONFIG_HOME="$HOME/.config"                        # CONFIG HOME
 export EDITOR="nvim"
+
+export PATH=$PATH:~/go/bin

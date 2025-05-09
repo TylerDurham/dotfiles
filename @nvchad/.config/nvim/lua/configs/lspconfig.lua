@@ -5,7 +5,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- List of servers to configure
-local servers = { "lua_ls", "pyright" }
+local servers = { "lua_ls", "pyright", "gopls" }
 
 -- Setup servers with default configurations
 for _, lsp in ipairs(servers) do
@@ -15,6 +15,12 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities,
     }
 end
+
+lspconfig.gopls.setup {
+    on_attach = on_attach,
+    on_init = on_init,
+    capabilities = capabilities,
+}
 
 lspconfig.pyright.setup {
     on_attach = on_attach,
