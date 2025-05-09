@@ -44,7 +44,17 @@ return {
                 "go",
                 "gomod",
                 "gosum",
+                "dap-go",
             },
+        },
+    },
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "leoluz/nvim-dap-go",
+            config = function()
+                require("dap-go").setup()
+            end,
         },
     },
 }
