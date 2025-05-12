@@ -28,25 +28,22 @@ return {
             require "configs.lspconfig"
         end,
     },
-
-    -- test new blink
-    -- { import = "nvchad.blink.lazyspec" },
-
     {
         "nvim-treesitter/nvim-treesitter",
-        opts = {
-            ensure_installed = {
-                "vim",
-                "lua",
-                "vimdoc",
-                "html",
-                "css",
-                "go",
-                "gomod",
-                "gosum",
-                "dap-go",
-            },
-        },
+        opts = function(_, opts)
+            -- BUG: https://github.com/LazyVim/LazyVim/issues/524
+            opts.ignore_install = { "help" }
+
+            if type(opts.ensure_installed) == "table" then
+                vim.list_extend(opts.ensure_installed, {
+                    "python",
+                    "lua",
+                    "markdown",
+                    "bash",
+                    "go",
+                })
+            end
+        end,
     },
     {
         "mfussenegger/nvim-dap",
