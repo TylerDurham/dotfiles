@@ -123,6 +123,7 @@ alt-m = 'workspace M' # Messaging: Signal, Messages, etc.
 alt-n = 'workspace N' # Notes: Obisdian, Onenote, etc.
 alt-p = 'workspace P' # Notes: Obisdian, Onenote, etc.
 alt-v = 'workspace V'
+alt-r = 'workspace R' # Reading: Kindle, Apple Books, Calibre.
 alt-t = 'workspace T'
 alt-o = 'workspace O'
 alt-w = 'workspace W'
@@ -145,6 +146,7 @@ alt-shift-d = 'move-node-to-workspace D' # Development: Alacritty, VS Code, etc.
 alt-shift-m = 'move-node-to-workspace M' # Messaging: Signal, Messages, etc.
 alt-shift-n = 'move-node-to-workspace N' # Notes: Obisdian, Onenote, etc.
 alt-shift-p = 'move-node-to-workspace P' # Notes: Obisdian, Onenote, etc.
+alt-shift-r = 'move-node-to-workspace R'
 alt-shift-w = 'move-node-to-workspace W' # Work: Teams, Outlook
 
 alt-shift-f = 'fullscreen'
@@ -159,7 +161,7 @@ cmd-f12 = 'move-node-to-monitor right --wrap-around --focus-follows-window'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
 
-alt-shift-r = 'mode resize'
+#alt-shift-r = 'mode resize'
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -257,6 +259,10 @@ run = "move-node-to-workspace N"
 [[on-window-detected]]
 if.app-id = "md.obsidian"
 run = "move-node-to-workspace N"
+
+[[on-window-detected]]
+if.app-id = "com.apple.iBooksX"
+run = "move-node-to-workspace R"
 
 # Always float these windows
 [[on-window-detected]]
