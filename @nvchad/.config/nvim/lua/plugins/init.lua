@@ -4,7 +4,6 @@ return {
         event = { "BufWritePre", "BufNewFile" }, -- uncomment for format on save
         opts = require "configs.conform",
     },
-
     {
         "williamboman/mason.nvim",
         dependencies = {
