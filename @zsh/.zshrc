@@ -29,3 +29,6 @@ export XDG_CONFIG_HOME="$HOME/.config"                        # CONFIG HOME
 export EDITOR="nvim"
 
 export PATH=$PATH:~/go/bin
+
+eval "$(uv --generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
