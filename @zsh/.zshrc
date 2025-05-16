@@ -32,3 +32,7 @@ export PATH=$PATH:~/go/bin
 
 eval "$(uv --generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select
