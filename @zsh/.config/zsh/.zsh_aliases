@@ -181,64 +181,64 @@ check_font() {
     fi
 }
 
-cwrap() {
-    local default_prefix="#"
-    local prefix="$default_prefix"
-    local fname="$0"
-    local print_line=0
-    local line=""
-    local figlet=""
-
-    show_help() {
-        echo "Description: Wraps <stdin> in a comment."
-        echo "Usage: echo <text> | $fname [-p prefix] [-l <print horizontal rule>]"
-        echo
-        echo "  -p prefix   Optional prefix to prepend to the input. Default is '$default_prefix'."
-        echo "  -f font     Optional figlet fontname to stylize the text before wrapping."
-        echo "  -l          Optional - wraps the output in a horizontal rule."
-        echo "  -h          Show this help message"
-        echo
-    }
-
-    while getopts "p:f:lh" opt; do case "$opt" in
-        p) prefix="$OPTARG" ;;
-        f) figlet="$OPTARG" ;;
-        h)
-            show_help
-            return 0
-            ;;
-        l) print_line=1 ;;
-        *)
-            show_help
-            return 1
-            ;;
-        esac
-    done
-
-    # Shift off options
-    shift $((OPTIND - 1))
-
-    # Read from stdin
-    if [ -t 0 ]; then
-        echo "$(red Error:) no input detected on <stdin>" >&2
-        show_help
-        return 1
-    fi
-
-
-    print_hr() {
-      if (( print_line > 0 )); then
-          echo "${1} ========================================================================="
-        fi
-    }
-
-    print_hr $prefix
-    while IFS= read -r line; do
-        if [ -z "$figlet" ]; then
-          echo "${prefix} ${line}"
-        else
-        figlet -f $figlet "${line}" | cwrap -p $prefix
-        fi
-    done
-    print_hr $prefix
-}
+# cwrap() {
+#     local default_prefix="#"
+#     local prefix="$default_prefix"
+#     local fname="$0"
+#     local print_line=0
+#     local line=""
+#     local figlet=""
+#
+#     show_help() {
+#         echo "Description: Wraps <stdin> in a comment."
+#         echo "Usage: echo <text> | $fname [-p prefix] [-l <print horizontal rule>]"
+#         echo
+#         echo "  -p prefix   Optional prefix to prepend to the input. Default is '$default_prefix'."
+#         echo "  -f font     Optional figlet fontname to stylize the text before wrapping."
+#         echo "  -l          Optional - wraps the output in a horizontal rule."
+#         echo "  -h          Show this help message"
+#         echo
+#     }
+#
+#     while getopts "p:f:lh" opt; do case "$opt" in
+#         p) prefix="$OPTARG" ;;
+#         f) figlet="$OPTARG" ;;
+#         h)
+#             show_help
+#             return 0
+#             ;;
+#         l) print_line=1 ;;
+#         *)
+#             show_help
+#             return 1
+#             ;;
+#         esac
+#     done
+#
+#     # Shift off options
+#     shift $((OPTIND - 1))
+#
+#     # Read from stdin
+#     if [ -t 0 ]; then
+#         echo "$(red Error:) no input detected on <stdin>" >&2
+#         show_help
+#         return 1
+#     fi
+#
+#
+#     print_hr() {
+#       if (( print_line > 0 )); then
+#           echo "${1} ========================================================================="
+#         fi
+#     }
+#
+#     print_hr $prefix
+#     while IFS= read -r line; do
+#         if [ -z "$figlet" ]; then
+#           echo "${prefix} ${line}"
+#         else
+#         figlet -f $figlet "${line}" | cwrap -p $prefix
+#         fi
+#     done
+#     print_hr $prefix
+# }
