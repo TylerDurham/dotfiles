@@ -30,6 +30,8 @@ export EDITOR="nvim"
 
 export PATH=$PATH:~/go/bin
 
+export PATH="/opt/homebrew/opt/node/bin:$PATH"
+
 eval "$(uv --generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
 
