@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+
+LIB_NAME="Calibre Library"
+SRC="$HOME/$LIB_NAME/"
+TARGET="$HOME/Dropbox"
+
+
+if [ ! -d "$SRC" ]; then
+  echo "Source directory does not exist: $SRC"
+  exit 1
+fi
+
+if [ ! -d "$TARGET" ]; then
+  echo "Target parent directory does not exist: $TARGET"
+  exit 1
+fi
+
+TARGET="$TARGET/$LIB_NAME"
+
+rsync \
+  -avh \
+  --exclude-from="$HOME/.local/bin/calibre-excludes.txt" \
+  $SRC $TARGET 
