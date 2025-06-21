@@ -40,3 +40,6 @@ autoload -Uz compinit
 compinit
 
 zstyle ':completion:*' menu select
+
+# Added by Windsurf
+export PATH="/Users/tylerd/.codeium/windsurf/bin:$PATH"
