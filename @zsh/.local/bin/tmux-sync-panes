@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cwd=$(pwd)
+session=$(tmux display-message -p '#S')
+
+tmux list-panes -a -F '#{session_name}:#{window_index}.#{pane_index}' | grep "^$session:" | while read -r pane; do
+  
+  # case "$cmd" in
+    # zsh|bash|fish|sh)
+      # echo "$pane"
+      tmux send-keys -t "$pane" "cd \"$cwd\"" C-m
+      # ;;
+  # esac 
+done
