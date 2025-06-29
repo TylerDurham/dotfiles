@@ -1,5 +1,55 @@
 #!/usr/bin/sh
 
+check_command() {
+    local program="$1"
+    local mode="${2:-recommended}" # Default to 'warn' if not specified
+
+    if [[ ! -n $1 ]]; then
+        error "Please specify a command to check for!"
+        return 1
+    fi
+
+    if ! command -v "$program" >/dev/null 2>&1; then
+        if [ "$mode" = "required" ]; then
+            error "$(yellow $program) is required but not installed."
+            return 1
+        elif [[ "$mode" = "silent" ]]; then
+            return 127
+        else
+            warn "$(blue $program) is recommended but not installed."
+            return 127
+        fi
+    fi
+}
+
+red() {
+    echo "\033[1;31m$1\033[0m"
+}
+
+blue() {
+    echo "\033[1;34m$1\033[0m"
+}
+
+cyan() {
+    echo "\033[1;81m$1\033[0m"
+}
+
+yellow() {
+    echo "\033[1;93m$1\033[0m"
+}
+
+error() {
+    msg=$1
+    prefix="$(red "[ERROR]")"
+    echo $prefix $msg >&2
+}
+
+warn() {
+    msg=$1
+    prefix="$(yellow "[WARNING]")"
+    echo $prefix $msg >&2
+}
+
 install_brew() {
   # Proudly borrowed from:
   # https://github.com/duckfullstop/dotfiles/blob/f734eea399a7ccd1c25b57242997e79f230abc4d/.config/yadm/bootstrap
@@ -14,12 +64,23 @@ install_brew() {
 if [[ "$(uname)" == "Darwin" ]]; then
 
   install_brew
-	
+
+  brew install yadm	
+  brew install neovim
   brew install jq
+  brew install ripgrep
+  brew install fzf
+  brew install eza
   brew install iperf3
+  brew install sqlite
+  brew install tmux
+  brew install tree
 
 else
-	
+  source /etc/os-release
+
+  # TODO: Bootstrap linux packages
+  echo $NAME
 fi
 
 echo "bootstrap!"
