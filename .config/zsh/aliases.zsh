@@ -142,6 +142,7 @@ declare -a RECOMMENDED_COMMANDS=(
     "shfmt"
     "unzip"
     "uv"
+    "yadm"
   )
 
 check_command() {
