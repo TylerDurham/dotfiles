@@ -143,6 +143,8 @@ declare -a RECOMMENDED_COMMANDS=(
     "unzip"
     "uv"
     "yadm"
+    # NOTE: zoxide
+    "z"
   )
 
 check_command() {
