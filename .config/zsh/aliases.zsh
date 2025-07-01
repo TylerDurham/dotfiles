@@ -8,8 +8,13 @@
 # ==========================================================================================
 # UTILITY
 # ==========================================================================================
-# ENV VARIABLES
+
 alias cls=clear
+alias c='clear'
+alias cat='bat'
+
+# ENV VARIABLES
+
 # alias startgnome="sudo systemctl start gdm" # TODO: Need to move this to linux
 alias tsc="./node_modules/.bin/tsc"
 
