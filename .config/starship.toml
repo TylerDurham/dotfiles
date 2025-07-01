@@ -1,9 +1,18 @@
 # General prompt config
-format = """\
+format = """
 $directory$git_branch$git_status$python$nodejs$rust$docker_context\
 $jobs$cmd_duration$time$line_break$character"""
 
-right_format = """$username@$hostname"""
+right_format = "$username@$hostname"
+
+[username]
+show_always = true
+style_user = "bold green"
+
+[hostname]
+ssh_only = false
+style = "bold blue"
+
 
 # Prompt symbol
 [character]
@@ -71,14 +80,6 @@ stashed = "stashed "
 # symbol = "🐳 "
 # style = "cyan"
 
-# Hostname + username
-[username]
-show_always = true
-style_user = "bold dimmed white"
-
-[hostname]
-ssh_only = false
-style = "bold dimmed white"
 
 
 [palettes.catppuccin_mocha]
@@ -110,3 +111,4 @@ mantle = "#181825"
 crust = "#11111b"
 
 palette = "catppuccin_mocha"
+
