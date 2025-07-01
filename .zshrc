@@ -19,6 +19,15 @@ fi
 # ALIASES
 source ~/.config/zsh/aliases.zsh
 
+# ==========================================================================================
+# TMUX
+# ==========================================================================================
+if [[ ! -f ~/.config/tmux/plugins/tpm/tpm && -d ~/.config/tmux ]]; then
+    echo "TPM not installed. Installing"
+    git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+    echo 'TPM installed. Run tmux and type CTRL + <SPACE>, then "I".'
+fi
+
 # SPECIFIC PLATFORM CONFIGS
 if [[ "$(uname)" == "Darwin" ]]; then
 	source ~/.config/zsh/macos.zsh
