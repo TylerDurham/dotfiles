@@ -30,7 +30,8 @@ fi
 eval "$(starship init zsh)"
 
 # ZOXIDE
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
+
 
 # Created by newuser for 5.9
 . "$HOME/.local/bin/env"
