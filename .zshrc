@@ -83,6 +83,37 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+# Setup fzf theme
+  COLOR_BG=#1e1e2e          # TODO: Move these hex values into color names
+  COLOR_BG_P=#313244
+  COLOR_BORDER=#313244
+  COLOR_SPINNER=#f5e0dc
+  COLOR_HL=#f38ba8
+  COLOR_HL_P=#f38ba8
+  COLOR_FG=#cdd6f4
+  COLOR_FG_P=#cdd6f4
+  COLOR_HEADER=#f38ba8
+  COLOR_INFO=#cba6f7
+  COLOR_LABLE=#cdd6f4
+  COLOR_POINTER=#f5e0dc
+  COLOR_PROMPT=#cba6f7
+  COLOR_MARKER=#b3befe
+  COLOR_SELECTED_BG=#45475a
+
+  export FZF_DEFAULT_OPTS=" \
+    --bind=ctrl-j:down \
+    --bind=ctrl-k:up \
+    --bind=ctrl-h:toggle-preview \
+    --bind=ctrl-l:toggle-preview-wrap \
+    --bind=esc:cancel \
+    --preview='bat --style=numbers --color=always {} || cat {}' \
+    --preview-window=right:60% \
+    --color=bg+:$COLOR_BG_P,bg:$COLOR_BG,spinner:$COLOR_SPINNER,hl:$COLOR_HL \
+    --color=fg:$COLOR_FG,header:$COLOR_HEADER,info:$COLOR_INFO,pointer:$COLOR_POINTER \
+    --color=marker:$COLOR_MARKER,fg+:$COLOR_FG_P,prompt:$COLOR_PROMPT,hl+:$COLOR_HL_P \
+    --color=selected-bg:$COLOR_SELECTED_BG \
+    --color=border:$COLOR_BORDER,label:$COLOR_LABEL"
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
