@@ -30,7 +30,7 @@ fi
 
 # SPECIFIC PLATFORM CONFIGS
 if [[ "$(uname)" == "Darwin" ]]; then
-	source ~/.config/zsh/macos.zsh
+	source ~/.config/z esh/macos.zsh
 else
 	source ~/.config/zsh/linux.zsh
 fi
@@ -38,9 +38,9 @@ fi
 # Created by newuser for 5.9
 . "$HOME/.local/bin/env"
 
-# ==========================================================================================
+# =======================================================================================
 # ZINIT
-# ==========================================================================================
+# =======================================================================================
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -123,11 +123,13 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
     --color=selected-bg:$COLOR_SELECTED_BG \
     --color=border:$COLOR_BORDER,label:$COLOR_LABEL"
 
+# =======================================================================================
 # Shell integrations
+# =======================================================================================
+
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
-
 
 # if [[ "$ZSHRC_MODE" == "DEBUG" ]]; then
 #   echo "Run 'zprof' to profile zsh."
