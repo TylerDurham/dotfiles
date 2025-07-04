@@ -12,6 +12,11 @@ or
 stow -S . -t ~/
 ```
 
+To remove:
+
+``` sh 
+stow -D . -t ~/
+```
 
 [yadm]:https://yadm.io/
 [stow]:https://www.gnu.org/software/stow/
