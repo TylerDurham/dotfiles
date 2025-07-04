@@ -30,7 +30,7 @@ fi
 
 # SPECIFIC PLATFORM CONFIGS
 if [[ "$(uname)" == "Darwin" ]]; then
-	source ~/.config/z esh/macos.zsh
+	source ~/.config/zsh/macos.zsh
 else
 	source ~/.config/zsh/linux.zsh
 fi
