@@ -3,6 +3,7 @@
 # Additional exports
 # =======================================================================================
 
+# MSQL Client path
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # NODE STUFF
