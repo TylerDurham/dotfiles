@@ -136,3 +136,5 @@ tmp/
 
 # Completion files
 *.zwc
+
+.stash/
