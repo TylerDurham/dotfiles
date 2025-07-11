@@ -47,7 +47,7 @@ alias gp='git push origin main'
 alias gca='git commit -a'
 function gacp() {
     msg=$1
-    git add . && git commit -m $msg && gp
+    git add . && git commit -m $msg && git push
 }
 alias gs='git status'
 alias gcl='git clone --depth 1'
