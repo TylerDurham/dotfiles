@@ -138,3 +138,5 @@ tmp/
 *.zwc
 
 .stash/
+
+@linux/.config/omarchy/current/
