@@ -1,22 +1,21 @@
 # DOTFILES
 
-I use either [yadm] (on a server) or [stow] (on a desktop/laptop) to manage my dotfiles. 
+I use [stow] (on a desktop/laptop) to manage my dotfiles. 
+
+## Install
+
+After cloning, run:
 
 ``` sh 
-yadm clone https://github.com/TylerDurham/dotfiles.git
+./install.sh
 ```
 
 or 
 
 ``` sh 
-stow -S . -t ~/
+stow @core -t ~/ 
+stow @linux -t ~/ 
+stow @macos -t ~/
 ```
 
-To remove:
-
-``` sh 
-stow -D . -t ~/
-```
-
-[yadm]:https://yadm.io/
 [stow]:https://www.gnu.org/software/stow/
