@@ -2,7 +2,12 @@
 
 pre release - use with caution
 
-I use [stow] (on a desktop/laptop) to manage my dotfiles. 
+I use [stow] (on a desktop/laptop) to manage my dotfiles.
+
+## Modules
+
+- Core
+- [Omarchy](mod-omarchy.md)
 
 ## Install
 
@@ -25,7 +30,6 @@ stow @macos -t ~/
 ## [Catppuccin]
 
 ![Screenshot of Catppuccin](media/catppuccin.png)
-
 
 - [Catppuccin Wallpapers]
 
