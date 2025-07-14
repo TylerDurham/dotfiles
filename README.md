@@ -24,8 +24,11 @@ stow @macos -t ~/
 
 ## [Catppuccin]
 
-- [catppuccin-wallpapers]
+![Screenshot of Catppuccin](media/catppuccin.png)
+
+
+- [Catppuccin Wallpapers]
 
 [stow]:https://www.gnu.org/software/stow/
 [Catppuccin]:https://catppuccin.com/
-[catppuccin-wallpapers]:https://github.com/zhichaoh/catppuccin-wallpapers
+[Catppuccin Wallpapers]:https://github.com/zhichaoh/catppuccin-wallpapers
