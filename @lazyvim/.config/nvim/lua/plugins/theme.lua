@@ -1,0 +1,1 @@
+/home/tylerd/.config/omarchy/current/theme/neovim.lua
