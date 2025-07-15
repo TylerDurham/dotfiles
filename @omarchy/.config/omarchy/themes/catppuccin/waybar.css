@@ -1,8 +1,9 @@
-@define-color hot #fab387;
-@define-color normal #74c7ec;
-@define-color dimmed #6c7086;
-@define-color background #181825;
-@define-color active #a6e3a1;
+@define-color hot #fab387;        /* Peach */
+@define-color warm #F5E0DC;       /* Rosewater */
+@define-color normal #74c7ec;     /* Sapphire */
+@define-color dimmed #6c7086;     /* Overlay0 */
+@define-color background #181825; /* Mantle */
+@define-color active #a6e3a1;     /* Green */
 
 * {
   color: @dimmed;
@@ -14,18 +15,19 @@
 }
 
 #clock {
-  font-weight: bold;
+  
+  color: @dimmed;
 }
 
+/* I think this looks better just a wee bit larger. */
 #bluetooth {
   font-size: 11pt;
 }
 
-#battery, #bluetooth, #clock, #custom-power-menu, #cpu, #network, #power-profiles-daemon.balanced, #pulseaudio {
+/* Other modules. */
+#battery, #bluetooth, #custom-power-menu, #cpu, #network, #power-profiles-daemon.balanced, #pulseaudio {
   color: @normal;
 }
-
-#power-profiles-daemon {}
 
 /* Performance Power Profile */
 #power-profiles-daemon.performance {
