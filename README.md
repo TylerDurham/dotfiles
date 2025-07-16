@@ -25,13 +25,6 @@ stow @linux -t ~/
 stow @macos -t ~/
 ```
 
-# Themes
-
-## [Catppuccin]
-
-![Screenshot of Catppuccin](media/catppuccin.png)
-
-- [Catppuccin Wallpapers]
 
 [stow]:https://www.gnu.org/software/stow/
 [Catppuccin]:https://catppuccin.com/
