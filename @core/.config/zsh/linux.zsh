@@ -17,3 +17,7 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null 2>&1 || ! [ -S "$SSH_AUTH_SOCK" ]; t
     eval "$(ssh-agent -a "$SSH_AUTH_SOCK" -s)" > /dev/null
     ssh-add -l >/dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
 fi
+
+# Path for flatpak stuff
+PATH=$PATH:~/.local/share/flatpak/exports/share
+PATH=$PATH:/var/lib/flatpak/exports/share

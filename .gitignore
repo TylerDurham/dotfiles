@@ -141,3 +141,5 @@ tmp/
 
 @linux/.config/omarchy/current/
 temp/
+
+*.env
