@@ -143,3 +143,5 @@ tmp/
 temp/
 
 *.env
+
+*.ovpn
