@@ -31,6 +31,7 @@
 #network,
 #bluetooth,
 #pulseaudio,
+#power-profiles-daemon,
 #clock,
 #custom-power-menu {
   min-width: 12px;

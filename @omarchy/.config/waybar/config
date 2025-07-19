@@ -10,12 +10,12 @@
       "clock"
     ],
     "modules-right": [
-      "bluetooth",
-      "power-profiles-daemon",
       "network",
       "pulseaudio",
+      "bluetooth",
       "cpu",
       "battery",
+      "power-profiles-daemon",
       "custom/power-menu"
     ],
     "hyprland/workspaces": {
@@ -27,8 +27,8 @@
         "2": "2",
         "3": "3",
         "4": "4",
-        "5": "🎵",
-        "6": "6",
+        "5": "♫",
+        "6": "▶",
         "7": "7",
         "8": "8",
         "9": "9",
@@ -39,7 +39,8 @@
         "2": [],
         "3": [],
         "4": [],
-        "5": []
+        "5": [],
+        "6": [],
       }
     },
     "cpu": {
@@ -63,7 +64,7 @@
       "tooltip-format-disconnected": "Disconnected",
       "interval": 3,
       "nospacing": 1,
-      "on-click": "alacritty -e iwctl"
+      "on-click": "alacritty --class=Impala -e impala"
     },
     "battery": {
       "format": "{capacity}% {icon}",
