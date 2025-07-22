@@ -2,7 +2,7 @@
 
 # Directory to iterate
 
-stow-recursive() {
+unstow-recursive() {
   BASE_DIR=$1
 
   # Check if directory exists
@@ -19,27 +19,24 @@ stow-recursive() {
     # Remove trailing slash and get the name
     dirname=$(basename "$dir")
 
-    echo -e "\tStowing module: $dirname"
+    echo -e "\tUnstowing module: $dirname"
 
     # Example action (replace with your command)
     # echo "Running stow for $dirname"
-    stow "$dirname" -d "$BASE_DIR" -t ~/
+    stow -D "$dirname" -d "$BASE_DIR" -t ~/
 
   done
 
 }
 
-echo "Installing core 'stow' packages."
-stow-recursive ./stow/core/
+echo "Uninstalling core 'stow' packages."
+unstow-recursive ./stow/core/
 
 # SPECIFIC PLATFORM CONFIGS
 if [[ "$(uname)" == "Darwin" ]]; then
-  echo "Installing macOS packages via Homebrow."
-  source ./scripts/macos-packages.zsh
-
-  echo "Installing macOS specific 'stow' packages."
-  stow-recursive ./stow/macos/
+  echo "Uninstalling macOS specific 'stow' packages."
+  unstow-recursive ./stow/macos/
 else
   echo "TODO: Linux specific stow packages."
-  stow-recursive ./stow/linux/
+  unstow-recursive ./stow/linux/
 fi
