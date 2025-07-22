@@ -19,4 +19,8 @@ for package in "${SNORK_PACKAGES[@]}"; do
   check_package "$package"
 done
 
+brew tap homebrew/cask-fonts
+brew install --cask font-fira-code-nerd-font
+
+
 export SNORK_PACKAGES
