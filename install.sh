@@ -30,7 +30,7 @@ stow-recursive() {
 
 # SPECIFIC PLATFORM CONFIGS
 if [[ "$(uname)" == "Darwin" ]]; then
-  echo "Installing macOS packages via Homebrow."
+  echo "Installing macOS packages via Homebrew."
   source ./scripts/macos-packages.zsh
 
   echo "Installing macOS specific 'stow' packages."
