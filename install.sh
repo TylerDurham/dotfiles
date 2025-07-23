@@ -28,6 +28,27 @@ stow-recursive() {
   done
 }
 
+if [[ -L "$HOME/.zprofile" ]]; then
+  echo "WARNING: '.zprofile' symlink exists. Removing."
+  rm "$HOME/.zprofile"
+fi
+
+if [[ -f "$HOME/.zprofile" ]]; then
+  echo "WARNING: '.zprofile' exists. Making backup."
+  mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
+fi
+
+if [[ -L "$HOME/.zshrc" ]]; then
+  echo "WARNING: '.zshrc' symlink exists. Removing."
+  rm "$HOME/.zshrc"
+fi
+
+if [[ -f "$HOME/.zshrc" ]]; then
+  echo "WARNING: '.zshrc' exists. Making backup."
+  mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
+fi
+
+exit 0
 # SPECIFIC PLATFORM CONFIGS
 if [[ "$(uname)" == "Darwin" ]]; then
   echo "Installing macOS packages via Homebrew."
@@ -42,3 +63,5 @@ fi
 
 echo "Installing core 'stow' packages."
 stow-recursive ./stow/core/
+
+echo "All casks and packages installed for macOs!"
