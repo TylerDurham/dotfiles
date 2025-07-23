@@ -1,4 +1,4 @@
-SNORK_PACKAGES=("tmux" "neovim" "ripgrep" "zoxide" "fzf" "tree" "starship" "stow" "bat")
+SNORK_PACKAGES=("tmux" "neovim" "ripgrep" "zoxide" "fzf" "tree" "starship" "stow" "bat" "gum")
 SNORK_CASKS=("alacritty" "nikitabobko/tap/aerospace" "font-fira-code-nerd-font")
 
 # Sort and overwrite

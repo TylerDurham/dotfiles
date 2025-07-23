@@ -51,7 +51,7 @@ fi
 # SPECIFIC PLATFORM CONFIGS
 if [[ "$(uname)" == "Darwin" ]]; then
   echo "Installing macOS packages via Homebrew."
-  source ./scripts/macos-packages.zsh
+  source ./scripts/macos-packages.sh
 
   echo "Installing macOS specific 'stow' packages."
   stow-recursive ./stow/macos/
