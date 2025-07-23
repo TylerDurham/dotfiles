@@ -8,6 +8,7 @@ Important: Make sure [Homebrew](https://brew.sh) is installed when running on `M
 
 ``` sh 
 ./install.sh
+```
 
 # Core
 
