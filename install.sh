@@ -48,7 +48,6 @@ if [[ -f "$HOME/.zshrc" ]]; then
   mv "$HOME/.zshrc" "$HOME/.zshrc.bak"
 fi
 
-exit 0
 # SPECIFIC PLATFORM CONFIGS
 if [[ "$(uname)" == "Darwin" ]]; then
   echo "Installing macOS packages via Homebrew."
