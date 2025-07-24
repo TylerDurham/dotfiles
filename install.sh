@@ -1,42 +1,79 @@
 #!/bin/bash
 
+# ##########################################
+# _ _  _ ____ ___ ____ _    _     ____ _  _
+# | |\ | [__   |  |__| |    |     [__  |__|
+# | | \| ___]  |  |  | |___ |___ .___] |  |
+#
+# ##########################################
+
 # Default values
 INSTALL_PACKAGES=false
 RUN_STOW=false
 VERBOSE=false
 OS_PLATFORM=$(uname)
+OVERWRITE=false
+BACKUP=false
+TEST=false
 
 source "$(pwd)/scripts/colors.sh"
 source "$(pwd)/scripts/install-lib.sh"
+
+show_debug_command() {
+  if [[ "$VERBOSE" == true ]]; then
+    echo $(info "install.sh run with the following options:")
+    echo -e ""$(debug "--packages | -p: $INSTALL_PACKAGES")
+    echo -e ""$(debug "--stow | -s: $RUN_STOW")
+    echo -e ""$(debug "--verbose | -v: $VERBOSE")
+    echo -e ""$(debug "--force | -f: $OVERWRITE")
+    echo -e ""$(debug "--backup | -b: $BACKUP")
+    echo -e ""
+  fi
+}
 
 show_help() {
   cat <<EOF
 $(blue $(bold "Usage:")) $(basename "$0") [OPTIONS]
 
 $(blue $(bold "Options:"))
-  $(yellow "--install-packages, -p")   Install all required packages
-  $(yellow "--run-stow, -s")           Run stow to symlink configuration files
-  $(yellow "--help, -h")               Show this help message and exit
+  $(yellow "--packages, -p")    Install all required packages.
+  $(yellow "--stow, -s")            Run stow to symlink configuration files.
+  $(yellow "--test, -t")                Run -s and -p in 'test' mode.
+  $(yellow "-f")                        Overwrite conflicting target files when stowing.
+  $(yellow "-b")                        Backup conflicting target files when stowing.
+  $(yellow "--help, -h")                Show this help message and exit.
 
 $(blue $(bold "Examples:"))
-  $(basename "$0") -ps
-  $(basename "$0") --install-packages
+  $(basename "$0") -ps                  Installs packages and stows dotfiles.
+  $(basename "$0") -psf                 Installs packages, and stows dotfiles (overwrites existing dotfiles).
+  $(basename "$0") --packages   Installs packages, but does not stow dotfiles.
+  $(basename "$0") --stow           Stows dotfiles, but does not install packages.
 EOF
+
+  show_debug_command
 }
 
 # First, handle long options manually
 while [[ "$1" == --* ]]; do
   case "$1" in
-  --install-packages)
+  --backup)
+    BACKUP=true
+    shift
+    ;;
+  --packages)
     INSTALL_PACKAGES=true
     shift
     ;;
-  --run-stow)
+  --stow)
     RUN_STOW=true
     shift
     ;;
   --help)
     show_help
+    exit 0
+    ;;
+  --test)
+    echo "Coming soon"
     exit 0
     ;;
   --) # end of long options
@@ -51,13 +88,22 @@ while [[ "$1" == --* ]]; do
 done
 
 # Now handle short options with getopts
-while getopts ":psv:h" opt; do
+while getopts ":psvfb:ht" opt; do
   case ${opt} in
+  b)
+    BACKUP=true
+    ;;
+  f)
+    OVERWRITE=true
+    ;;
   p)
     INSTALL_PACKAGES=true
     ;;
   s)
     RUN_STOW=true
+    ;;
+  t)
+    TEST=true
     ;;
   v)
     VERBOSE=true
@@ -79,11 +125,8 @@ if [[ "$INSTALL_PACKAGES" == false && "$RUN_STOW" == false ]]; then
   exit 1
 fi
 
-echo $(info "install.sh run with the following options:")
-echo -e ""$(info "install packages: $INSTALL_PACKAGES")
-echo -e ""$(info "run stow: $RUN_STOW")
-echo -e ""$(info "verbose: $VERBOSE")
-echo -e ""
+show_debug_command
+
 # Directory to iterate
 
 stow-recursive() {
@@ -115,17 +158,16 @@ stow-recursive() {
   done
 }
 
-########################################
-# if [[ -L "$HOME/.zprofile" ]]; then
-#   echo "WARNING: '.zprofile' symlink exists. Removing."
-#   rm "$HOME/.zprofile"
-# fi
-#
-# if [[ -f "$HOME/.zprofile" ]]; then
-#   echo "WARNING: '.zprofile' exists. Making backup."
-#   mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
-# fi
-#
+if [[ -L "$HOME/.zprofile" && "$OVERWRITE" == true ]]; then
+  warning "'.zprofile' symlink exists. Removing."
+  rm "$HOME/.zprofile"
+fi
+
+if [[ -f "$HOME/.zprofile" && "$BACKUP" == true ]]; then
+  warning "'.zprofile' exists. Making backup."
+  mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
+fi
+
 # if [[ -L "$HOME/.zshrc" ]]; then
 #   echo "WARNING: '.zshrc' symlink exists. Removing."
 #   rm "$HOME/.zshrc"
@@ -151,7 +193,7 @@ if [[ "$INSTALL_PACKAGES" == true ]]; then
     ;;
   esac
 else
-  echo -e $(info "No $(green --install-packages) option provided. Skipping $(green $OS_PLATFORM) packages installation.")
+  echo -e $(info "No $(green --packages) option provided. Skipping $(green $OS_PLATFORM) packages installation.")
 fi
 
 if [[ "$RUN_STOW" == true ]]; then
@@ -173,7 +215,7 @@ if [[ "$RUN_STOW" == true ]]; then
     ;;
   esac
 else
-  echo -e $(info "No $(green --run-stow) option provided. Skipping $(green $OS_PLATFORM) dotfile installation.")
+  echo -e $(info "No $(green --stow) option provided. Skipping $(green $OS_PLATFORM) dotfile installation.")
 fi
 
 # # SPECIFIC PLATFORM CONFIGS
@@ -184,7 +226,7 @@ fi
 #     echo "Installing macOS packages via Homebrew."
 #     source ./scripts/macos-packages.sh
 #   else
-#     echo -e $(debug "no --install-packages option provided. Skipping macOS packages via Homebrew.")
+#     echo -e $(debug "no --packages option provided. Skipping macOS packages via Homebrew.")
 #   fi
 #
 #   echo "Installing macOS specific 'stow' packages."

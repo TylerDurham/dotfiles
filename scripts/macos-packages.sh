@@ -1,3 +1,4 @@
+# TODO: Add uv for python
 SNORK_PACKAGES=("bash" "tmux" "neovim" "ripgrep" "zoxide" "fzf" "tree" "starship" "stow" "bat" "gum")
 INSTALL_PACKAGES=("gum")
 SNORK_CASKS=("alacritty" "aerospace" "font-fira-code-nerd-font")
