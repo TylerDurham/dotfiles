@@ -1,4 +1,4 @@
-SNORK_PACKAGES=("tmux" "neovim" "ripgrep" "zoxide" "fzf" "tree" "starship" "stow" "bat" "gum")
+SNORK_PACKAGES=("bash" "tmux" "neovim" "ripgrep" "zoxide" "fzf" "tree" "starship" "stow" "bat" "gum")
 INSTALL_PACKAGES=("gum")
 SNORK_CASKS=("alacritty" "aerospace" "font-fira-code-nerd-font")
 
@@ -51,3 +51,4 @@ done
 # Unlock from quarantine
 xattr -d com.apple.quarantine /Applications/AeroSpace.app
 xattr -d com.apple.quarantine /Applications/Alacritty.app
+sudo bash -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
