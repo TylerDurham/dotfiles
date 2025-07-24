@@ -51,4 +51,11 @@ done
 # Unlock from quarantine
 xattr -d com.apple.quarantine /Applications/AeroSpace.app
 xattr -d com.apple.quarantine /Applications/Alacritty.app
-sudo bash -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
+
+if grep -Fxq "/opt/homebrew/bin/bash" /etc/shells; then
+  info "New bash path already present. Nothing to do. \n"
+else
+  warning "Adding new bash to /etc/shells. You may be prompted for your password!"
+  echo ""
+  echo "/opt/homebrew/bin/bash" | sudo tee -a /etc/shells
+fi
