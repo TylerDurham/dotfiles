@@ -30,6 +30,7 @@ Installs the following packages:
 - Alacritty
 - Aerospace
 - FiraCode Nerd Fonts
+- bash (latest). MacOS ships with bash 3.2.
 
 # Linux
 
