@@ -2,22 +2,24 @@
 INSTALL_PACKAGES=0
 STOW_DOTFILES=0
 VERBOSE=0
-OS_PLATFORM=$(uname)
+OS_PLATFORM=$(uname | tr "[:upper:]" [":lower:"])
 OVERWRITE=0
 BACKUP=0
 TEST=0
+ARGS="$*"
 
 source "$(pwd)/scripts/install-lib.sh"
 
 show_debug_command() {
   if [[ "$VERBOSE" == 1 ]]; then
-    echo $(info "install.sh run with the following options:")
-    echo -e ""$(debug "--install-packages | -p: $INSTALL_PACKAGES")
-    echo -e ""$(debug "--stow-dotfiles | -s: $STOW_DOTFILES")
-    echo -e ""$(debug "--verbose | -v: $VERBOSE")
-    echo -e ""$(debug "--force | -f: $OVERWRITE")
-    echo -e ""$(debug "--backup | -b: $BACKUP")
-    echo -e ""
+    info "install.sh run with the following options:"
+    debug "OS architecture: $OS_PLATFORM"
+    debug "Command Line Arguments $ARGS"
+    subdebug "--install-packages | -p: $INSTALL_PACKAGES"
+    subdebug "--stow-dotfiles | -s: $STOW_DOTFILES"
+    subdebug "--verbose | -v: $VERBOSE"
+    subdebug "--force | -f: $OVERWRITE"
+    subdebug "--backup | -b: $BACKUP"
   fi
 }
 
@@ -27,7 +29,7 @@ $(blue $(bold "Usage:")) $(basename "$0") [OPTIONS]
 
 $(blue $(bold "Options:"))
   $(yellow "--install-packages, -p")    Install all required packages.
-  $(yellow "--stow-dotfiles, -s")            Run stow to symlink configuration files.
+  $(yellow "--stow-dotfiles, -s")       Run stow to symlink configuration files.
   $(yellow "--test, -t")                Run -s and -p in 'test' mode.
   $(yellow "-f")                        Overwrite conflicting target files when stowing.
   $(yellow "-b")                        Backup conflicting target files when stowing.
@@ -37,10 +39,8 @@ $(blue $(bold "Examples:"))
   $(basename "$0") -ps                  Installs packages and stows dotfiles.
   $(basename "$0") -psf                 Installs packages, and stows dotfiles (overwrites existing dotfiles).
   $(basename "$0") --install-packages   Installs packages, but does not stow dotfiles.
-  $(basename "$0") --stow-dotfiles           Stows dotfiles, but does not install packages.
+  $(basename "$0") --stow-dotfiles      Stows dotfiles, but does not install packages.
 EOF
-
-  show_debug_command
 }
 
 # First, handle long options manually
