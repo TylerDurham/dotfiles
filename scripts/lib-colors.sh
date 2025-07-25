@@ -1,3 +1,10 @@
+# ##############################
+# ____ ____ _    ____ ____ ____
+# |    |  | |    |  | |__/ [__
+# |___ |__| |___ |__| |  \ ___]
+#
+# ##############################
+
 # ===========================================================================
 # blue() - echos a formatted message in blue.
 # ===========================================================================
@@ -7,50 +14,6 @@
 #     - text: the message to display.
 blue() {
   echo -e "\033[34m$*\033[0m"
-}
-
-# ===========================================================================
-# magenta() - echos a formatted message in magenta.
-# ===========================================================================
-#   USAGE: magenta "My Text Message"
-#
-#   ARGS:
-#     - text: the message to display.
-magenta() {
-  echo -e "\033[35m$*\033[0m"
-}
-
-# ===========================================================================
-# green() - echos a formatted message in green.
-# ===========================================================================
-#   USAGE: green "My Text Message"
-#
-#   ARGS:
-#     - text: the message to display.
-green() {
-  echo -e "\033[32m$*\033[0m"
-}
-
-# ===========================================================================
-# yellow() - echos a formatted message in yellow.
-# ===========================================================================
-#   USAGE: yellow "My Text Message"
-#
-#   ARGS:
-#     - text: the message to display.
-yellow() {
-  echo -e "\033[33m$*\033[0m"
-}
-
-# ===========================================================================
-# red() - echos a formatted message in red.
-# ===========================================================================
-#   USAGE: red "My Text Message"
-#
-#   ARGS:
-#     - text: the message to display.
-red() {
-  echo -e "\033[31m$*\033[0m"
 }
 
 # ===========================================================================
@@ -74,6 +37,51 @@ bold() {
 dim() {
   echo -e "\033[2m$*\033[0m"
 }
+
+# ===========================================================================
+# green() - echos a formatted message in green.
+# ===========================================================================
+#   USAGE: green "My Text Message"
+#
+#   ARGS:
+#     - text: the message to display.
+green() {
+  echo -e "\033[32m$*\033[0m"
+}
+
+# ===========================================================================
+# magenta() - echos a formatted message in magenta.
+# ===========================================================================
+#   USAGE: magenta "My Text Message"
+#
+#   ARGS:
+#     - text: the message to display.
+magenta() {
+  echo -e "\033[35m$*\033[0m"
+}
+
+# ===========================================================================
+# red() - echos a formatted message in red.
+# ===========================================================================
+#   USAGE: red "My Text Message"
+#
+#   ARGS:
+#     - text: the message to display.
+red() {
+  echo -e "\033[31m$*\033[0m"
+}
+
+# ===========================================================================
+# yellow() - echos a formatted message in yellow.
+# ===========================================================================
+#   USAGE: yellow "My Text Message"
+#
+#   ARGS:
+#     - text: the message to display.
+yellow() {
+  echo -e "\033[33m$*\033[0m"
+}
+
 # ===========================================================================
 # debug() - echos a formatted message prefixed with DEBUG.
 # ===========================================================================
@@ -81,9 +89,20 @@ dim() {
 #
 #   ARGS:
 #     - text: the message to display.
-
 debug() {
-  printf "$(magenta DEBUG): $(dim $*)"
+  printf "$(magenta DEBUG): $(dim $*)\n"
+}
+
+# ===========================================================================
+# error() - Prints a formatted message prefixed with ERROR.
+# ===========================================================================
+#   USAGE: error "My Error Message"
+#
+#   ARGS:
+#     - text: the message to display.
+error() {
+  local text="$*"
+  printf "$(red $(bold ERROR)): $text\n"
 }
 
 # ===========================================================================
@@ -95,7 +114,7 @@ debug() {
 #     - text: the message to display.
 info() {
   local text="$*"
-  printf "$(blue $(bold INFO)): $text"
+  printf "$(green $(bold INFO)): $text\n"
 }
 
 # ===========================================================================
@@ -103,21 +122,54 @@ info() {
 # ===========================================================================
 #   USAGE: task "My Task Message"
 #
+#   REMARKS: Should follow calls to task-list.
+#
 #   ARGS:
 #     - text: the message to display.
 task() {
   local text="$*"
-  printf " - $(magenta TASK): $text\n"
+  printf "$(blue $(bold TASK)): $text\n"
 }
 
-task-section() {
+# ===========================================================================
+# task-list() - Prints a formatted message prefixed with TASKS.
+# ===========================================================================
+#
+#   REMARKS: Begins a task section or group. Follow with calls to subtask for
+#            a list of formatted subtasks.
+#
+#   USAGE: task-list "My Task Message"
+#
+#   ARGS:
+#     - text: the message to display.
+task-list() {
   local text="$*"
-  printf "$(blue $(bold SECTION)): $text\n"
+  printf "$(magenta $(bold TASKS)): $text\n"
 }
 
-task-warning() {
+suberror() {
   local text="$*"
-  printf " - $(yellow warning): $text"
+  printf " - $(error $text)\n"
+}
+
+subinfo() {
+  local text="$*"
+  printf " - $(info $text)\n"
+}
+
+subdebug() {
+  local text="$*"
+  printf " - $(debug $text)\n"
+}
+
+subtask() {
+  local text="$*"
+  printf " - $(task $text)\n"
+}
+
+subwarning() {
+  local text="$*"
+  printf " - $(warning $text)\n"
 }
 
 # ===========================================================================
@@ -129,16 +181,5 @@ task-warning() {
 #     - text: the message to display.
 warning() {
   local text="$*"
-  printf "$(yellow $(bold WARNING)): $text"
-}
-# ===========================================================================
-# error() - Prints a formatted message prefixed with ERROR.
-# ===========================================================================
-#   USAGE: error "My Error Message"
-#
-#   ARGS:
-#     - text: the message to display.
-error() {
-  local text="$*"
-  printf "$(red $(bold ERROR)): $text"
+  printf "$(yellow $(bold WARNING)): $text\n"
 }
