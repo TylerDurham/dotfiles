@@ -5,6 +5,16 @@
 #
 # ##############################
 
+bg-blue() { echo -e "\033[44m$*\033[0m"; }
+bg-green() { echo -e "\033[42m$*\033[0m"; }
+bg-red() { echo -e "\033[41m$*\033[0m"; }
+bg-yellow() { echo -e "\033[43m$*\033[0m"; }
+bg-magenta() { echo -e "\033[45m$*\033[0m"; }
+
+black() {
+  echo -e "\033[30m$*\033[0m"
+}
+
 # ===========================================================================
 # blue() - echos a formatted message in blue.
 # ===========================================================================
@@ -144,7 +154,7 @@ task() {
 #     - text: the message to display.
 task-list() {
   local text="$*"
-  printf "$(magenta $(bold TASKS)): $text\n"
+  printf "$(blue $(bold TASKS)): $text\n"
 }
 
 suberror() {

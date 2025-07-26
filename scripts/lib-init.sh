@@ -20,6 +20,7 @@ show_debug_command() {
     subdebug "--verbose | -v: $VERBOSE"
     subdebug "--force | -f: $OVERWRITE"
     subdebug "--backup | -b: $BACKUP"
+    subdebug "--test | -t: $TEST"
   fi
 }
 
