@@ -46,7 +46,11 @@ handle-stow-dotfiles() {
     stow-recursive "$(pwd)/stow/macos"
     ;;
   "linux")
-    echo "Target OS is Linux"
+    stow-recursive "$(pwd)/stow/linux"
+    read -p " - Deploy package omarchy? [y/n]" answer
+    if [[ "$answer" =~ ^[Yy]$ ]]; then
+      stow-recursive "$(pwd)/stow/omarchy"
+    fi
     ;;
   esac
 
