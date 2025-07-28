@@ -36,6 +36,9 @@ handle-stow-dotfiles() {
   flags=$(get-stow-flags ~/.zshrc)
   ((flags & FLG_EXISTS)) && handle-file-exists ~/.zshrc
 
+  flags=$(get-stow-flags ~/.zprofile)
+  ((flags & FLG_EXISTS)) && handle-file-exists ~/.zprofile
+
   stow-recursive "$(pwd)/stow/core"
 
   case "$OS_PLATFORM" in
@@ -69,29 +72,5 @@ main() {
   info "Finished!"
 }
 
-# stow-recursive() {
-#   BASE_DIR=$1
-#
-#   # Check if directory exists
-#   if [[ ! -d "$BASE_DIR" ]]; then
-#     echo "Directory $BASE_DIR does not exist."
-#     exit 1
-#   fi
-#
-#   task-list "Stowing recursively starting from '$(green $BASE_DIR)':"
-#
-#   # Iterate over subdirectories
-#   for dir in "$BASE_DIR"/*/; do
-#     # Skip if not a directory
-#     [[ -d "$dir" ]] || continue
-#
-#     # Remove trailing slash and get the name
-#     dirname=$(basename "$dir")
-#
-#     stow "$dirname" -d "$BASE_DIR" -t ~/
-#     subtask "Stowing module: '$(green $dirname)'."
-#   done
-# }
-#
 # Kick it off!
 main

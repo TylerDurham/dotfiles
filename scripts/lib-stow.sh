@@ -16,12 +16,17 @@ get-stow-flags() {
     flags=$((flags | FLG_EXISTS))     # Set the "exists" bit.
     flags=$((flags | FLG_IS_DIR))     # Set the "directory" bit.
     flags=$((flags | FLG_CAN_BACKUP)) # Set the "backup" bit.
+
+    echo $flags
+    return
   fi
 
   if [[ -f "$full_path" ]]; then
     flags=$((flags | FLG_EXISTS))     # Set the "exists" bit.
     flags=$((flags | FLG_IS_FILE))    # Set the "file" bit.
     flags=$((flags | FLG_CAN_BACKUP)) # Set the "backup" bit.
+    echo $flags
+    return
   fi
 
   if [[ -L "$full_path" ]]; then
@@ -29,9 +34,10 @@ get-stow-flags() {
     flags=$((flags | FLG_IS_SYMLINK))    # Set the "symlink" bit.
     flags=$((flags & ~FLG_CAN_BACKUP))   # Clear the "backup" bit. Why backup a symlink?
     flags=$((flags | FLG_CAN_OVERWRITE)) # Set the "overwrite" bit.
+    echo $flags
+    return
   fi
 
-  echo $flags
 }
 
 stow-recursive() {
