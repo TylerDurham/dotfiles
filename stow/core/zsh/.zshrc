@@ -37,7 +37,7 @@ else
 fi
 
 # Created by newuser for 5.9
-. "$HOME/.local/bin/env"
+#. "$HOME/.local/bin/env"
 
 # =======================================================================================
 # ZINIT
