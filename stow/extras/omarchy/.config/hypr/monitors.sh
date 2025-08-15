@@ -32,33 +32,7 @@ handle_change() {
 }
 
 update_env() {
-    local env_file=~/.config/hypr/monitors.env
-
-    # Clear old vars
-    : > "$env_file"
-
-    # Get primary monitor descriptor
-    local primary
-    primary=$(hyprctl monitors -j |
-        jq -r '.[] | select(.disabled == false and .primary == true)
-               | "desc:\(.make) \(.model) \(.serial)"')
-
-    if [[ -n "$primary" ]]; then
-        echo "export MONITOR_PRIMARY=\"$primary\"" >> "$env_file"
-    fi
-
-    # Add all non-primary monitors
-    local index=2
-    hyprctl monitors -j |
-        jq -r '.[] | select(.disabled == false and .primary == false)
-               | "desc:\(.make) \(.model) \(.serial)"' |
-    while read -r desc; do
-        echo "export MONITOR_${index}=\"$desc\"" >> "$env_file"
-        ((index++))
-    done
-
-    echo "[monitor_env.sh] Updated monitor environment variables:"
-    cat "$env_file"
+  source ~/.local/bin/hyprdock
 }
 
 # Initial run

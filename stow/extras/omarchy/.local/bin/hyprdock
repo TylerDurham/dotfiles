@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+
+# Count of monitors: 3
+# Monitor: BOE 0x0BC9 
+# Monitor: LG Electronics LG ULTRAWIDE 0x0001DEEC
+# Monitor: LG Electronics LG ULTRAGEAR 404MXCR52499
+
+# monitor = DP-8, 2560x1440, 0x0, 1
+# monitor = DP-7, 2560x1080, 2560x0, 1
+# monitor = , preferred, auto, auto
+
+MONITOR_ENVS="$HOME/.config/hypr/monitors.env"
+MONITOR_COUNT=$(hyprctl monitors -j | jq '[.[] | select(.disabled == false)] | length')
+LG_ULTRAWIDE="LG Electronics LG ULTRAWIDE 0x0001DEEC"
+LG_ULTRAGEAR="LG Electronics LG ULTRAGEAR 404MXCR52499"
+
+echo "Count of monitors: $MONITOR_COUNT"
+
+write_single_monitor() {
+  echo "monitor = , preferred, auto, auto" >> $MONITOR_ENVS
+}
+
+if (( $MONITOR_COUNT == 1)); then
+  echo "" > $MONITOR_ENVS
+  write_single_monitor
+  hyprctl reload
+  exit 0
+fi
+
+# Fill array with monitor descriptors
+mapfile -t monitors < <(
+  hyprctl monitors -j |
+  jq -r '.[] | select(.disabled == false)
+         | "\(.description)"'
+)
+
+# Print them
+# printf 'Monitor %d: %s\n' $(seq 1 ${#monitors[@]}) "${monitors[@]}"
+
+
+echo "# auto-generated" > $MONITOR_ENVS
+for mon in "${monitors[@]}"; do
+
+    if [ "$mon" == "$LG_ULTRAWIDE" ]; then
+      # export MONITOR_1="$LG_ULTRAWIDE"
+      echo "\$MONITOR_1 = desc:$LG_ULTRAWIDE" >> $MONITOR_ENVS
+    fi
+    
+    if [ "$mon" == "$LG_ULTRAGEAR" ]; then
+      # export MONITOR_2="$LG_ULTRAGEAR"
+      echo "\$MONITOR_2 = desc:$LG_ULTRAGEAR" >> $MONITOR_ENVS
+    fi
+
+done
+
+echo "Updated monitors.env:"
+cat $MONITOR_ENVS
