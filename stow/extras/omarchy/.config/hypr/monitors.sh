@@ -1,49 +1,62 @@
 #!/usr/bin/env bash
 
-# Figure out the correct event socket path
-SOCKET_PATH="/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock"
 
-# Resolve Hyprland event socket robustly
-get_socket() {
-  # 1) Try hyprctl option (works on recent Hyprland)
-  local from_opt
-  if from_opt="$(hyprctl -j getoption socket2 2>/dev/null | jq -r '.str // empty')"; then
-    if [[ -n "$from_opt" && -S "$from_opt" ]]; then
-      echo "$from_opt"
-      return
+# Count of monitors: 3
+# Monitor: BOE 0x0BC9 
+# Monitor: LG Electronics LG ULTRAWIDE 0x0001DEEC
+# Monitor: LG Electronics LG ULTRAGEAR 404MXCR52499
+
+# monitor = DP-8, 2560x1440, 0x0, 1
+# monitor = DP-7, 2560x1080, 2560x0, 1
+# monitor = , preferred, auto, auto
+
+MONITOR_ENVS="$HOME/.config/hypr/monitors.env"
+MONITOR_COUNT=$(hyprctl monitors -j | jq '[.[] | select(.disabled == false)] | length')
+LG_ULTRAWIDE="LG Electronics LG ULTRAWIDE 0x0001DEEC"
+LG_ULTRAGEAR="LG Electronics LG ULTRAGEAR 404MXCR52499"
+
+echo "Count of monitors: $MONITOR_COUNT"
+
+# write_single_monitor() {
+#   echo "monitor = , preferred, auto, auto" >> $MONITOR_ENVS
+# }
+#
+# if (( $MONITOR_COUNT == 1)); then
+#   echo "" > $MONITOR_ENVS
+#   write_single_monitor
+#   hyprctl reload
+#   exit 0
+# fi
+
+# Fill array with monitor descriptors
+mapfile -t MONITOR_DESCRIPTIONS < <(
+  hyprctl monitors -j |
+  jq -r '.[] | select(.disabled == false)
+         | "\(.description)"'
+)
+
+# Fill array with monitor names
+mapfile -t MONITOR_NAMES < <(
+  hyprctl monitors -j |
+  jq -r '.[].name'
+)
+
+now=$(date)
+
+echo "# auto-generated $now" > $MONITOR_ENVS
+for ((i=1; i<=MONITOR_COUNT; i++)); do
+    name="${MONITOR_NAMES[i-1]}"
+    description="${MONITOR_DESCRIPTIONS[i-1]}"
+
+    if [[ "$description" == "$LG_ULTRAWIDE" ]]; then
+      echo "\$MONITOR_1 = $name" >> $MONITOR_ENVS
+    elif [[ "$description" == "$LG_ULTRAGEAR" ]]; then
+      echo "\$MONITOR_2 = $name" >> $MONITOR_ENVS
+    else
+      echo $name
     fi
-  fi
-
-  # 2) Standard runtime dir
-  local base="${XDG_RUNTIME_DIR:-/run/user/$UID}/hypr/$HYPRLAND_INSTANCE_SIGNATURE"
-  local candidate="$base/.socket2.sock"
-  if [[ -S "$candidate" ]]; then
-    echo "$candidate"
-    return
-  fi
-
-  # 3) Legacy fallback
-  candidate="/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock"
-  echo "$candidate"
-}
-
-handle_change() {
-  update_env
-}
-
-update_env() {
-  source ~/.local/bin/hyprdock
-}
-
-# Initial run
-update_env
-
-SOCKET_PATH="$(get_socket)"
-echo "[monitor_env.sh] listening on: $SOCKET_PATH"
-
-# Listen for events and trigger on monitor add/remove or mode changes
-socat - UNIX-CONNECT:"$SOCKET_PATH" | while read -r event_line; do
-  case "$event_line" in
-    monitoradded*|monitorremoved*|monitorstate*|monitorlayout*) handle_change ;;
-  esac
+      
 done
+
+echo "$now - Updated monitors.env with $MONITOR_COUNT monitors: ${MONITOR_NAMES[@]}" >> ~/.config/hypr/monitors.log
+
