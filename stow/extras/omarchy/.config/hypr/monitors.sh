@@ -10,6 +10,7 @@
 # monitor = DP-7, 2560x1080, 2560x0, 1
 # monitor = , preferred, auto, auto
 
+LOG_PATH=/tmp/monitors.log
 MONITOR_ENVS="$HOME/.config/hypr/monitors.env"
 MONITOR_COUNT=$(hyprctl monitors -j | jq '[.[] | select(.disabled == false)] | length')
 LG_ULTRAWIDE="LG Electronics LG ULTRAWIDE 0x0001DEEC"
@@ -48,6 +49,11 @@ for ((i=1; i<=MONITOR_COUNT; i++)); do
     name="${MONITOR_NAMES[i-1]}"
     description="${MONITOR_DESCRIPTIONS[i-1]}"
 
+    if (( MONITOR_COUNT == 1 )); then
+      echo "\$MONITOR_INTERNAL = $name" >> $MONITOR_ENVS
+      break
+    fi
+
     if [[ "$description" == "$LG_ULTRAWIDE" ]]; then
       echo "\$MONITOR_1 = $name" >> $MONITOR_ENVS
     elif [[ "$description" == "$LG_ULTRAGEAR" ]]; then
@@ -58,5 +64,5 @@ for ((i=1; i<=MONITOR_COUNT; i++)); do
       
 done
 
-echo "$now - Updated monitors.env with $MONITOR_COUNT monitors: ${MONITOR_NAMES[@]}" >> ~/.config/hypr/monitors.log
+echo "$now - Updated monitors.env with $MONITOR_COUNT monitors: ${MONITOR_NAMES[@]}" >> $LOG_PATH
 
