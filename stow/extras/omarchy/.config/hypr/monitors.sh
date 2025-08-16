@@ -64,5 +64,4 @@ for ((i=1; i<=MONITOR_COUNT; i++)); do
       
 done
 
-echo "$now - Updated monitors.env with $MONITOR_COUNT monitors: ${MONITOR_NAMES[@]}" >> $LOG_PATH
-
+echo "$now - $MONITOR_COUNT monitors now detected: ${MONITOR_NAMES[@]}" | tee -a $LOG_PATH | xargs -0 notify-send --
