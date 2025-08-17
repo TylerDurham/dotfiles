@@ -1,17 +1,33 @@
 #!/usr/bin/env bash
+set -uo pipefail
 
-session_name="dotfiles"
+# Define your sessions and their working directories
+declare -A SESSION_DIRS=(
+  [home]="$HOME"
+  [dotfiles]="$HOME/Development/@gitea.snork.co/tylerd/dotfiles"
+  [gitea]="$HOME/Development/@gitea.snork.co/tylerd/"
+  [github]="$HOME/Development/@github.com/TylerDurham"
+  [rippy]="$HOME/Development/@gitea.snork.co/tylerd/rippy"
+)
 
-if [[ -n "$1" ]]; then
-  session_name="$1" 
-fi
+# Default session is dotfiles
+session_name="${1:-dotfiles}"
 
-if [[ $(tmux list-sessions | grep -c "$session_name" ) -eq 1 ]]; then
-  echo "Session '$session_name' exists. Attaching now."
-  tmux attach-session -t $session_name
+# Lookup directory if we have one
+session_dir="${SESSION_DIRS[$session_name]:-$HOME}"
+
+cd $session_dir
+
+if tmux has-session -t "$session_name" 2>/dev/null; then
+  if [[ -n "${TMUX:-}" ]]; then
+    # Already inside tmux: switch to the session
+    tmux switch-client -t "$session_name"
+  else
+    # Not in tmux: attach to the session
+    exec tmux attach-session -t "$session_name"
+  fi
 else
-  echo "Session '$session_name' does not existing. Creating now." 
-  tmux new-session -s $session_name
+  # Create the session (and attach)
+  exec tmux new-session -s "$session_name" -c "$session_dir"
 fi
-
 
