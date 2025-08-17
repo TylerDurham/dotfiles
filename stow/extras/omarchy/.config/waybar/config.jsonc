@@ -111,17 +111,17 @@
       "tooltip-format": "Devices connected: {num_connections}",
       "on-click": "blueberry"
     },
-  "pulseaudio": {
-    "format": "{icon}",
-    "on-click": "pavucontrol",
-    "on-click-right": "pamixer -t",
-    "tooltip-format": "Playing at {volume}%",
-    "scroll-step": 5,
-    "format-muted": "󰝟",
-    "format-icons": {
-      "default": ["", "", ""]
-    }
-  },
+    "pulseaudio": {
+      "format": "{icon}",
+      "on-click": "alacritty --class=Wiremix -e wiremix",
+      "on-click-right": "pamixer -t",
+      "tooltip-format": "Playing at {volume}%",
+      "scroll-step": 5,
+      "format-muted": "󰝟",
+      "format-icons": {
+        "default": ["", "", ""]
+      }
+    },
     "custom/power-menu": {
       "format": "󰐥",
       "on-click": "~/.local/share/omarchy/bin/omarchy-menu-power",
