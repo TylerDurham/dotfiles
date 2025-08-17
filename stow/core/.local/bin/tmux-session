@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+session_name="dotfiles"
+
+if [[ -n "$1" ]]; then
+  session_name="$1" 
+fi
+
+if [[ $(tmux list-sessions | grep -c "$session_name" ) -eq 1 ]]; then
+  echo "Session '$session_name' exists. Attaching now."
+  tmux attach-session -t $session_name
+else
+  echo "Session '$session_name' does not existing. Creating now." 
+  tmux new-session -s $session_name
+fi
+
+
