@@ -47,9 +47,10 @@ handle-stow-dotfiles() {
     ;;
   "linux")
     stow-recursive "$(pwd)/stow/linux"
+    
     read -p " - Deploy package omarchy? [y/n]" answer
     if [[ "$answer" =~ ^[Yy]$ ]]; then
-      stow-recursive "$(pwd)/stow/omarchy"
+      stow-recursive "$(pwd)/stow/extras/omarchy"
     fi
     ;;
   esac
