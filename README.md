@@ -35,4 +35,17 @@ Installs the following packages:
 # Linux
 
 - openvpn
-- omarchy
+- socat (for checking in on sockets)
+- numlockx (for turning on NUM LOCK at startup)
+
+# Extras
+
+## Omarchy 
+
+## NVChad
+
+My `dotfile` configs for NVChad.
+
+## LazyVim
+
+My `dotfile` configs for LazyVim.
