@@ -33,6 +33,7 @@
 #pulseaudio,
 #power-profiles-daemon,
 #clock,
+#idle_inhibitor,
 #custom-power-menu {
   min-width: 12px;
   margin: 0 7.5px;
