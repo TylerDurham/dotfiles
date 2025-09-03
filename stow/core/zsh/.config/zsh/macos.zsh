@@ -13,3 +13,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Use latest ruby interpreter on macOS
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+eval "$(~/.local/bin/mise activate)"

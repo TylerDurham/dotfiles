@@ -143,5 +143,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # Path to GO binaries 
 export PATH=$PATH:/usr/local/go/bin:~/.local/bin
-export PATH="/opt/homebrew/bin:$PATH"
-eval "$(~/.local/bin/mise activate)"
