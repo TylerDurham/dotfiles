@@ -13,6 +13,11 @@ return {
             ".git", "node_modules", "build", "dist", "yarn.lock"
           }
         },
+        pickers = {
+          find_files = {
+            hidden = true
+          },
+        },
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({})
