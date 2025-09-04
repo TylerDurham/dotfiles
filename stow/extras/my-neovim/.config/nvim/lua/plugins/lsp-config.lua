@@ -28,7 +28,8 @@ return {
           "isort",
           "stylua",
           "prettier",
-          "shfmt"
+          "shfmt",
+          "eslint_d"
         }
       })
     end
