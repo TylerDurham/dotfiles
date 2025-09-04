@@ -26,7 +26,8 @@ return {
           "black",
           "isort",
           "stylua",
-          "prettier"
+          "prettier",
+          "shfmt"
         }
       })
     end
