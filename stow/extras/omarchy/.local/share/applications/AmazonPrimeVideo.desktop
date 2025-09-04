@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Amazon Prime Video (Web)
+Comment=Launch Prime Video in Brave App Mode
+Exec=chromium --ozone-platform=wayland --app=https://www.amazon.com/gp/video/storefront
+Icon=/home/tylerd/.local/share/icons/hicolor/48x48/apps/AmazonPrimeVideo.png
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;Media;
+StartupWMClass=Chromium

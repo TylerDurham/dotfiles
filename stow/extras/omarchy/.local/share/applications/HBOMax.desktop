@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=HBO Max (Web)
+Comment=Launch HBO Max in Brave App Mode
+Exec=chromium --ozone-platform=wayland --app=https://play.hbomax.com/
+Icon=/home/tylerd/.local/share/icons/hicolor/48x48/apps/HBOMax.jpg
+Terminal=false
+Type=Application
+Categories=AudioVideo;Video;Media;
+StartupWMClass=Chromium
