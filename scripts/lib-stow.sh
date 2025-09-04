@@ -42,9 +42,9 @@ get-stow-flags() {
 
 stow-recursive() {
   BASE_DIR=$1
-  TARGET_DIR=$2
+  # TARGET_DIR=$2
+  CONFIRM=${2:false}
 
-  echo $TARGET_DIR
 
   # Check if directory exists
   if [[ ! -d "$BASE_DIR" ]]; then
@@ -63,8 +63,21 @@ stow-recursive() {
     # Remove trailing slash and get the name
     dirname=$(basename "$dir")
 
-    subtask "Stowing module: '$dirname'."
-    stow "$dirname" -d "$BASE_DIR" -t ~/
+    if [[ "$CONFIRM" == "true" ]]; then 
+      if [[ "$dirname" != "scripts" ]]; then
+      read -p " - Deploy package $dirname? [y/n]" answer
+          if [[ "$answer" =~ ^[Yy]$ ]]; then
+            subtask "Stowing module: '$dirname'."
+            stow "$dirname" -d "$BASE_DIR" -t ~/
+          fi
+      fi
+    else
+    # stow_package $BASE_DIR $dir_name
+      subtask "Stowing module: '$dirname'."
+      stow "$dirname" -d "$BASE_DIR" -t ~/
+    fi
+
+
     #echo -e "\t'--no-stow' option passed. Not actually stowing module: '$dirname'."
   done
 }

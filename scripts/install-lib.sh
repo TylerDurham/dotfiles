@@ -20,6 +20,7 @@ stow_package() {
 stow_packages() {
 
   BASE_DIR=$1
+  CONFIRM={2:-false}
 
   # Check if directory exists
   if [[ ! -d "$BASE_DIR" ]]; then
@@ -36,6 +37,8 @@ stow_packages() {
     dir_name=$(basename "$dir")
 
     stow_package $BASE_DIR $dir_name
+    
+
 
   done
 }

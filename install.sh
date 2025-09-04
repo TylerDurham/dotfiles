@@ -26,6 +26,12 @@ handle-file-exists() {
   fi
 }
 
+handle-install-extras() {
+  info "Installing extras."
+  stow-recursive "$(pwd)/stow/extras" true
+  exit 0
+}
+
 handle-install-packages() {
   info "Installing packages."
 }
@@ -63,6 +69,11 @@ handle-show-help() {
 }
 
 main() {
+
+  if ((INSTALL_XTRAS == 1)); then 
+    handle-install-extras
+    exit 0
+  fi
 
   # Do nothing but show help if no options were specified.
   ! ((INSTALL_PACKAGES || STOW_DOTFILES)) && handle-show-help

@@ -1,5 +1,6 @@
 # Default values
 INSTALL_PACKAGES=0
+INSTALL_XTRAS=0
 STOW_DOTFILES=0
 VERBOSE=0
 OS_PLATFORM=$(uname | tr "[:upper:]" [":lower:"])
@@ -67,6 +68,10 @@ while [[ "$1" == --* ]]; do
     echo "Coming soon"
     exit 0
     ;;
+  --extras)
+    INSTALL_XTRAS=1
+    shift
+    ;;
   --) # end of long options
     shift
     break
@@ -79,7 +84,7 @@ while [[ "$1" == --* ]]; do
 done
 
 # Now handle short options with getopts
-while getopts ":psvfb:ht" opt; do
+while getopts ":psvfbx:ht" opt; do
   case ${opt} in
   b)
     BACKUP=1
@@ -95,6 +100,9 @@ while getopts ":psvfb:ht" opt; do
     ;;
   t)
     TEST=1
+    ;;
+  x)
+    INSTALL_XTRAS=1
     ;;
   v)
     VERBOSE=1
