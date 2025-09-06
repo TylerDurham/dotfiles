@@ -2,6 +2,8 @@ vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true, desc = "Exit
 
 vim.keymap.set("n", "<leader>qq", ":qa!<cr>", { desc = "@: Close Neovim by (q)uick (q)uitting." })
 
+vim.keymap.set("n", "<leader>x", ":bd<cr>", { desc = "@: E(x)it the current buffer.", noremap = true, silent = true })
+
 -- Telescope keymaps
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "@: Open Telescope and (f)ind (f)iles." })
@@ -27,15 +29,15 @@ vim.keymap.set("n", "<leader>ha", function()
   require("harpoon.mark").add_file()
 end, { desc = "@: Use (h)arpoon to (a)dd a mark." }
 )
-vim.keymap.set("n", "<leader>hl", function ()
+vim.keymap.set("n", "<leader>hl", function()
   require("harpoon.ui").toggle_quick_menu()
 end, { desc = "@: Use (h)arpoon to (l)ist marks." }
 )
-vim.keymap.set("n", "<leader>hp", function ()
+vim.keymap.set("n", "<leader>hp", function()
   require("harpoon.ui").nav_prev()
 end, { desc = "@: Use (h)arpoon to navigate (p)revious mark." }
 )
-vim.keymap.set("n", "<leader>hn", function ()
+vim.keymap.set("n", "<leader>hn", function()
   require("harpoon.ui").nav_next()
 end, { desc = "@: Use (h)arpoon to navigate (n)next mark." }
 )
