@@ -22,7 +22,9 @@ vim.keymap.set("n", "<leader>ec", ":Neotree reveal left filesystem<cr>",
 vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "@: vim.lsp.buf.hover" })
 vim.keymap.set("n", "<leader>fm", function() vim.lsp.buf.format({ async = true }) end, { desc = "" })
 vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "@: " })
-vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "@: vim.lsp.buf.code_action" })
+vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "@: :S{ (c)ode (a)ction.", noremap = true })
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "@: LSP code (r)e(n)ame.", noremap = true } )
+vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, { buffer = 0, desc="@: View signature for function/method" })
 
 -- Harpoon
 vim.keymap.set("n", "<leader>ha", function()
@@ -33,11 +35,23 @@ vim.keymap.set("n", "<leader>hl", function()
   require("harpoon.ui").toggle_quick_menu()
 end, { desc = "@: Use (h)arpoon to (l)ist marks." }
 )
-vim.keymap.set("n", "<leader>hp", function()
+vim.keymap.set("n", "[h", function()
   require("harpoon.ui").nav_prev()
 end, { desc = "@: Use (h)arpoon to navigate (p)revious mark." }
 )
-vim.keymap.set("n", "<leader>hn", function()
+vim.keymap.set("n", "]h", function()
   require("harpoon.ui").nav_next()
 end, { desc = "@: Use (h)arpoon to navigate (n)next mark." }
 )
+
+-- NOTE: todo-comments
+vim.keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+vim.keymap.set("n", "<leader>tf", ":TodoTelescope keywords=TODO,FIX<cr>", { noremap = true, desc = "@: Telescope (t)odo-comments for (f)ixes." })
+vim.keymap.set("n", "<leader>ta", ":TodoTelescope<cr>", { noremap = true, desc = "@: Telescope (t)odo-comments for (a)all items." })
