@@ -4,6 +4,29 @@ vim.keymap.set("n", "<leader>qq", ":qa!<cr>", { desc = "@: Close Neovim by (q)ui
 
 vim.keymap.set("n", "<leader>x", ":bd<cr>", { desc = "@: E(x)it the current buffer.", noremap = true, silent = true })
 
+-- ========================================
+-- Buffer Navigation Keymaps
+-- ========================================
+
+-- Cycle through buffers (like browser tabs)
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", { silent = true, desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>", { silent = true, desc = "Previous buffer" })
+
+-- Quick buffer management
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true, desc = "Delete buffer" })
+vim.keymap.set("n", "<leader><leader>", "<C-^>", { silent = true, desc = "Switch to last buffer" })
+
+-- Jump to specific buffers (requires bufferline.nvim plugin)
+for i = 1, 9 do
+  vim.keymap.set("n", "<leader>" .. i, ":BufferLineGoToBuffer " .. i .. "<CR>", {
+    silent = true, 
+    desc = "Go to buffer " .. i
+  })
+end
+
+-- Optional: Telescope buffer finder (requires telescope.nvim)
+-- vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { silent = true, desc = "Find buffer" })
+
 -- Telescope keymaps
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "@: Open Telescope and (f)ind (f)iles." })
