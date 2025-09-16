@@ -36,8 +36,21 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "@: Open Telescope
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "@: Open Telescope and (f)ind (b)uffers." })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "@: Open Telescope and (f)ind (h)elp tags." })
 
+local toggle_explorer_state = true
+local function toggle_explorer()
+  toggle_explorer_state = not toggle_explorer_state
+  if (toggle_explorer_state == true) then
+    print("TRUE!")
+    vim.cmd("Neotree reveal left filesystem")
+  else
+    print("FALSE!")
+    vim.cmd("Neotree close")
+  end
+end
+
 -- Neo-tree keymaps
-vim.keymap.set("n", "<leader>ee", ":Neotree reveal left filesystem<cr>", { desc = "@: Op(e)n N(e)o tree file explorer." })
+--vim.keymap.set("n", "<leader>ee", ":Neotree reveal left filesystem<cr>", { desc = "@: Op(e)n N(e)o tree file explorer." })
+vim.keymap.set("n", "<leader>ee", toggle_explorer, { desc="@: N(e)o Tre(e) toggle." })
 vim.keymap.set("n", "<leader>ec", ":Neotree close<cr>", { desc = "@: Close N(e)o tree file explorer." })
 vim.keymap.set("n", "<leader>er", ":Neotree reveal left filesystem<cr>",
   { desc = "@: Reveal N(e)o tree revealing (c)urrent file. " })
