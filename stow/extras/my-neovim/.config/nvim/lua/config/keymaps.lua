@@ -37,8 +37,9 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "@: Open Telescope a
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "@: Open Telescope and (f)ind (h)elp tags." })
 
 -- Neo-tree keymaps
-vim.keymap.set("n", "<leader>ee", ":Neotree toggle filesystem<cr>", { desc = "@: Toggle(e) N(e)o tree file explorer." })
-vim.keymap.set("n", "<leader>ec", ":Neotree reveal left filesystem<cr>",
+vim.keymap.set("n", "<leader>ee", ":Neotree reveal left filesystem<cr>", { desc = "@: Op(e)n N(e)o tree file explorer." })
+vim.keymap.set("n", "<leader>ec", ":Neotree close<cr>", { desc = "@: Close N(e)o tree file explorer." })
+vim.keymap.set("n", "<leader>er", ":Neotree reveal left filesystem<cr>",
   { desc = "@: Reveal N(e)o tree revealing (c)urrent file. " })
 
 -- lsp
