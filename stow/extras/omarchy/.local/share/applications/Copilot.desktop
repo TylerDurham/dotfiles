@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Copilot (Web)
 Comment=Launch Copilot in Brave App Mode
-Exec=chromium --ozone-platform=wayland --app=https://copilot.microsoft.com/chats
+Exec=brave --ozone-platform=wayland --app=https://copilot.microsoft.com/chats
 Icon=/home/tylerd/.local/share/icons/hicolor/48x48/apps/Copilot.png
 Terminal=false
 Type=Application

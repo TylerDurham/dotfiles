@@ -2,7 +2,7 @@
 
 # Directory to search (defaults to current directory if none provided)
 # TARGET_DIR="${1:-.}"
-TARGET_DIR="./pkg/.local/share/applications"
+TARGET_DIR="../omarchy/.local/share/applications"
 
 # Replacement string
 REPLACEMENT=""

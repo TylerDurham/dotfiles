@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Plex (Web)
 Comment=Launch Plex in Brave App Mode
-Exec=chromium --ozone-platform=wayland --app=https://media.snork.co:32400/web/index.html#!/
+Exec=brave --ozone-platform=wayland --app=https://media.snork.co:32400/web/index.html#!/
 Icon=Plex
 Terminal=false
 Type=Application
