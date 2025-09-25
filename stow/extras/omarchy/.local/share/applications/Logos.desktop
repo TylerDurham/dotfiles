@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Logos Bible (Web)
-Comment=Launch Logos in Brave App Mode
-Exec=brave --ozone-platform=wayland --app=https://app.logos.com
-Icon=/home/tylerd/.local/share/icons/hicolor/48x48/apps/Logos.png
-Terminal=false
-Type=Application
-Categories=Religion; Bible; Christianity
-StartupWMClass=Chromium

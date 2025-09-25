@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Gitea (Web)
-Comment=Launch Gitea in Brave App Mode
-Exec=brave --ozone-platform=wayland --app=https://gitea.snork.co/
-Icon=/home/tylerd/.local/share/icons/hicolor/48x48/apps/Gitea.png
-Terminal=false
-Type=Application
-Categories=Development;
-StartupWMClass=Chromium

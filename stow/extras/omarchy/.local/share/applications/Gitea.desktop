@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Netflix (Web)
-Comment=Launch Netflix in Brave App Mode
-Exec=brave --ozone-platform=wayland --app=https://netflix.com/browse
-Icon=/home/tylerd/.local/share/icons/hicolor/48x48/apps/Netflix.png
-Terminal=false
-Type=Application
-Categories=Development;
-StartupWMClass=Chromium
