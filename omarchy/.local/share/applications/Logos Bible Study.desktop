@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Logos Bible Study
+Comment=Logos Bible Study
+Exec=omarchy-launch-webapp https://www.logos.com/
+Terminal=false
+Type=Application
+Icon=/home/tylerd/.local/share/applications/icons/Logos Bible Study.png
+StartupNotify=true
