@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Gitea
+Comment=Gitea (Web App)
+Exec=omarchy-launch-webapp https://gitea.snork.co
+Terminal=false
+Type=Application
+Icon=/home/tylerd/.local/share/applications/icons/Gitea.png
+StartupNotify=true

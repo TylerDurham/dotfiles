@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Plex
+Comment=Plex (Web App)
+Exec=omarchy-launch-webapp https://media.snork.co:32400/
+Terminal=false
+Type=Application
+Icon=/home/tylerd/.local/share/applications/icons/Plex.png
+StartupNotify=true
