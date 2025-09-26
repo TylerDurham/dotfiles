@@ -1,4 +1,5 @@
 sudo pacman -S flatpak
+sudo packman -S lsd
 
 flatpak install -y flathub com.github.tchx84.Flatseal
 flatpak install -y flathub com.plexamp.Plexamp    
