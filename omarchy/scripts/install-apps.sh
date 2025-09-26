@@ -1,5 +1,7 @@
-sudo pacman -S flatpak
-sudo packman -S lsd
+sudo pacman -Sy lsd stow bat tree ripgrep fzf tmux --noconfirm
+
+
+sudo pacman -Sy flatpak --noconfirm
 
 flatpak install -y flathub com.github.tchx84.Flatseal
 flatpak install -y flathub com.plexamp.Plexamp    
