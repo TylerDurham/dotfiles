@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Rumble
+Comment=Rumble
+Exec=omarchy-launch-webapp https://rumble.com/
+Terminal=false
+Type=Application
+Icon=/home/tylerd/.local/share/applications/icons/Rumble.png
+StartupNotify=true
