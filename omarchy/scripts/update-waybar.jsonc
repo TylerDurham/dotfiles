@@ -4,6 +4,7 @@
     "hyprland/window"
   ],
   "modules-right": [
+    "custom/tailscale",
     "power-profiles-daemon"
   ],
   "clock": {
@@ -15,6 +16,14 @@
     "separate-outputs": true,
     "icon": false,
     "icon-size": 20
+  },
+  "custom/tailscale": {
+    "exec": "~/.config/waybar/custom/tailscale.sh",
+    "interval": 5,
+    "return-type": "json",
+    "tooltip": true,
+    "format": "{text}",
+    "on-click": "~/.config/waybar/custom/tailscale.sh toggle"
   },
   "power-profiles-daemon": {
     "format": "{icon}",

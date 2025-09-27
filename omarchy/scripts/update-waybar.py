@@ -10,7 +10,7 @@ WAYBAR_CONFIG_DIR = os.path.join(HOME_DIR, ".config/waybar")
 WAYBAR_CONFIG_FILE = os.path.join(WAYBAR_CONFIG_DIR, "config.jsonc")
 WAYBAR_CSS_FILE = os.path.join(WAYBAR_CONFIG_DIR, "style.css")
 MODULES = ["modules-left", "modules-center", "modules-right"]
-MODULE_DEFINITIONS = ["hyprland/window", "clock", "power-profiles-daemon"]
+MODULE_DEFINITIONS = ["hyprland/window", "clock", "power-profiles-daemon", "custom/tailscale"]
 
 # Copy over original omarchy waybar config
 os.makedirs(os.path.dirname(WAYBAR_CONFIG_FILE), exist_ok=True)
@@ -48,6 +48,12 @@ xtra_css = """
     min-width: 12px;
     margin-left: 10px;
     margin-right: 12px;
+}
+
+#custom-tailscale {
+  min-width: 12px;
+  margin-left: 7px;
+  margin-right: 7px;
 }
 
 """
