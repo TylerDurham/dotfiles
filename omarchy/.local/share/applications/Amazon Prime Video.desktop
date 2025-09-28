@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Amazon Prime Video
+Comment=Amazon Prime Video
+Exec=omarchy-launch-webapp https://www.amazon.com/gp/video/storefront?redirectToCMP=1
+Terminal=false
+Type=Application
+Icon=/home/tylerd/.local/share/applications/icons/Amazon Prime Video.png
+StartupNotify=true
