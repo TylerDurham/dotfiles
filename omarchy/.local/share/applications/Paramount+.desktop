@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Paramount+
+Comment=Paramount+
+Exec=omarchy-launch-webapp https://www.paramountplus.com/home/
+Terminal=false
+Type=Application
+Icon=/home/tylerd/.local/share/applications/icons/Paramount+.png
+StartupNotify=true
