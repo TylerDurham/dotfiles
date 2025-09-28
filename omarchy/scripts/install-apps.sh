@@ -1,5 +1,4 @@
-sudo pacman -Sy lsd stow bat tree ripgrep fzf tmux --noconfirm
-
+sudo pacman -Sy lsd stow bat tree ripgrep fzf tmux calibre --noconfirm 
 
 sudo pacman -Sy flatpak --noconfirm
 
