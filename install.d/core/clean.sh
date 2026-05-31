@@ -38,6 +38,6 @@ for path in ${PATHS[@]}; do
       notice "Backing up '$path' to '$backup'..." ||
       debug "'$path' does not exist! Nothing to do..."
 
-    mv "$path" "$backup"
+    [[ -e "$path" ]] || mv "$path" "$backup"
   fi
 done
