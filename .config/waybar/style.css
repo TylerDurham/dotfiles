@@ -1,0 +1,79 @@
+@import "../dtd/current/waybar.css";
+
+* {
+  /* `otf-font-awesome` is required to be installed for icons */
+  all: unset;
+  font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
+  font-size: 16px;
+}
+
+.modules-right, .modules-left, .modules-center {
+  border-radius: 15px;
+  padding: 0px 20px;
+  margin: 10px 25px;
+}
+
+.modules-left, .modules-right {
+}
+
+.modules-center {
+}
+
+.modules-right, .modules-left, #workspaces button {
+  color: shade(@foreground, 0.85);
+  background-color: @theme_base_color;
+}
+
+
+window#waybar {
+  color: @foreground;
+  background-color: alpha(@theme_base_color, 0.50);
+}
+
+#custom-launcher {
+  color: @color9;
+  font-size: 22px;
+}
+
+#clock {
+  color: @color4;
+  font-weight: 500;
+  padding: 1px 10px;
+  border: inset 2px;
+  border-radius: 20px;
+}
+
+#custom-launcher,
+#network,
+#bluetooth,
+#battery,
+#power-profiles-daemon
+{
+  margin: 10px 15px;
+}
+
+#workspaces {
+  padding: 0px 15px;
+}
+
+#workspaces button {
+    border-bottom: 2px solid transparent;
+    min-width: 40px;
+}
+
+#workspaces button.active {
+  color: @color4;
+  border-radius: 25px;
+  border-bottom: 2px solid @foreground;
+  border-top: 2px solid @color9;
+  transition: all 0.3s ease-in-out;
+}
+
+#bluetooth {
+  background-color: @color4;
+  color: @background;
+  padding: 0 10px;
+  margin: 0;
+  font-size: 1.45em;
+  border-radius: 15px;
+}

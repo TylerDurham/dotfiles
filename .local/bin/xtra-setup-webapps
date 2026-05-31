@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# ##########################################################
+#
+# ██╗    ██╗███████╗██████╗  █████╗ ██████╗ ██████╗ ███████╗
+# ██║    ██║██╔════╝██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝
+# ██║ █╗ ██║█████╗  ██████╔╝███████║██████╔╝██████╔╝███████╗
+# ██║███╗██║██╔══╝  ██╔══██╗██╔══██║██╔═══╝ ██╔═══╝ ╚════██║
+# ╚███╔███╔╝███████╗██████╔╝██║  ██║██║     ██║     ███████║
+#  ╚══╝╚══╝ ╚══════╝╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝     ╚══════╝
+#
+# ##########################################################
+
+# Libs
+if ! . "$MY_BASH_LIB_DIR/require.sh" logger; then
+    echo "Could not load libraries from '$MY_USER_LIB_DIR'!" >&2
+    exit 1
+fi
+
+if ! command -v fomarchy-webapp-install &>/dev/null; then 
+  fatal "Omarchy web app installer (omarchy-webapp-install) not found in path!"
+fi
+
+omarchy-webapp-install "Gitea" https://gitea.snork.co https://gitea.snork.co/assets/img/logo.svg
+
+

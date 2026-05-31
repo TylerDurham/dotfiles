@@ -1,0 +1,12 @@
+bash-completion
+bat
+fzf
+neovim
+ripgrep
+starship
+lsd
+stow
+tmux
+tree
+zsh
+zoxide

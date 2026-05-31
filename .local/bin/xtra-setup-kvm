@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+# ########################################################################
+#
+# ██╗  ██╗██╗   ██╗███╗   ███╗    ██╗ ██████╗ ███████╗███╗   ███╗██╗   ██╗
+# ██║ ██╔╝██║   ██║████╗ ████║   ██╔╝██╔═══██╗██╔════╝████╗ ████║██║   ██║
+# █████╔╝ ██║   ██║██╔████╔██║  ██╔╝ ██║   ██║█████╗  ██╔████╔██║██║   ██║
+# ██╔═██╗ ╚██╗ ██╔╝██║╚██╔╝██║ ██╔╝  ██║▄▄ ██║██╔══╝  ██║╚██╔╝██║██║   ██║
+# ██║  ██╗ ╚████╔╝ ██║ ╚═╝ ██║██╔╝   ╚██████╔╝███████╗██║ ╚═╝ ██║╚██████╔╝
+# ╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝     ╚══▀▀═╝ ╚══════╝╚═╝     ╚═╝ ╚═════╝ 
+#
+# ########################################################################
+
+# Libs
+if ! . "$MY_BASH_LIB_DIR/require.sh" logger; then
+    echo "Could not load libraries from '$MY_USER_LIB_DIR'!" >&2
+    exit 1
+fi
+
+# CPU Checks
+info "Checking CPU..."
+vendor=$(grep -m1 "vendor_id" /proc/cpuinfo | awk '{print $3}')
+
+if [[ "$vendor" == "GenuineIntel" ]]; then
+  notice "Intel CPU — use kvm_intel" | indent 2
+  echo -e "kvm\nkvm_intel" | sudo tee /etc/modules-load.d/kvm.conf
+elif [[ "$vendor" == "AuthenticAMD" ]]; then
+  notice "AMD CPU — use kvm_amd" | indent 2
+  echo -e "kvm\nkvm_amd" | sudo tee /etc/modules-load.d/kvm.conf
+else
+    fatal "Unknown vendor: $vendor"
+fi
+
+# Socket permissions
+info "Setting socket permissions..."
+info "Changing unix_sock_group to 'libvirt' in /etc/libvirt/libvirtd.conf..." | indent 2
+sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/' /etc/libvirt/libvirtd.conf
+info "Changing unix_sock_rw_perms to '0770' in /etc/libvirt/libvirtd.conf..." | indent 2
+sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/' /etc/libvirt/libvirtd.conf
+
+# Firewall backend
+info "Changing firewall_backend to 'iptables' in /etc/libvirt/network.conf..."
+sudo sed -i 's/^#\s*firewall_backend\s*=.*/firewall_backend = "iptables"/' /etc/libvirt/network.conf
+
+# Install packages
+info "Installing packages..."
+sudo pacman -S --needed qemu-desktop virt-manager virt-viewer \
+  dnsmasq vde2 openbsd-netcat \
+  ebtables iptables-nft libvirt swtpm ovmf
+
+info "Installing packages required for virt-manager..."
+sudo pacman -S python-gobject gtk3 python-cairo  # Not always installed. Needed for virt-manager
+
+# User groups
+info "Adding '$USER' to 'libvirt' and 'kvm' groups..."
+sudo usermod -aG libvirt $(whoami)
+sudo usermod -aG kvm $(whoami)
+
+# Start services
+info "Starting libvirt services..."
+sudo systemctl enable --now libvirtd.service
+sudo systemctl status libvirtd.service
+
+# Mise conflicts with KVM
+if command -v mise &>/dev/null; then
+  warn "'mise' is installed. Disabling python for tools."
+  mise settings disable_tools python
+fi

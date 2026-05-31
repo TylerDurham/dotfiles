@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+source "$USER_LIB_DIR/bash/require.sh" logger || {
+  echo "ERROR: could not load require.sh logger!"
+  exit 1
+}
+
+THEME_NAME="${1:-lovely-day}"
+THEME_PATH="$USER_THEME_DIR/$THEME_NAME"
+
+[[ ! -d "$THEME_PATH" ]] && fatal "Could not load theme '$THEME_NAME' from '$THEME_PATH'!"
+
+debug "USER_THEME_DIR: $USER_THEME_DIR"
+debug "USER_CURRENT_THEME: $USER_CURRENT_THEME_DIR"
+mapfile -t images < <(ls -t $THEME_PATH/backgrounds/*.{png,svg,jpg,gif})
+[[ -e "${images[0]}" ]] && BACKGROUND="${images[0]}"
+
+awww img $BACKGROUND
+
+rm "$USER_CURRENT_THEME_DIR"
+ln -s $THEME_PATH $USER_CURRENT_THEME_DIR
+
+

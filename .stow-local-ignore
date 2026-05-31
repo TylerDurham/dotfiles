@@ -1,0 +1,9 @@
+^install$
+^install\.d$
+^README.md$
+^shelf$
+^temp$
+^ssh$
+^\.git$
+^\.gitignore$
+^require.sh$

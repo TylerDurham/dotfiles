@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+# ##########################
+# ██╗   ██╗ █████╗ ██╗   ██╗
+# ╚██╗ ██╔╝██╔══██╗╚██╗ ██╔╝
+#  ╚████╔╝ ███████║ ╚████╔╝ 
+#   ╚██╔╝  ██╔══██║  ╚██╔╝  
+#    ██║   ██║  ██║   ██║   
+#    ╚═╝   ╚═╝  ╚═╝   ╚═╝   
+# ##########################
+
+source "$(git rev-parse --show-toplevel)/install.d/envs.sh"
+
+# Libs
+if ! . "$USER_LIB_DIR/bash/require.sh" logger; then
+    echo "Could not load libraries from '$USER_LIB_DIR'!" >&2
+    exit 1
+fi
+
+# Where is this file located at?
+CWD=$(dirname $(realpath $0))
+
+# Parse args and flags
+while [[ $# -gt 0 ]]; do 
+  case "$1" in 
+    -r|--remove) REMOVE=1; shift ;;
+  esac
+done
+
+if [[ -n "$REMOVE" ]]; then
+  warn "Removing 'yay'!"
+  sys-pkg-uninstall yay-bin
+  exit 0
+fi
+
+info "Checking to see if 'yay' package manager is installed..."
+
+if command -v yay &>/dev/null; then
+  ok "'yay' is installed!"
+else
+  notice "'yay' is NOT installed. Installing now..."
+
+  sudo pacman -Syu --noconfirm --needed base-devel
+
+  TMP_DIR="$(mktemp -d)"
+
+  info "Cloning yay..."
+  git clone https://aur.archlinux.org/yay-bin.git "$TMP_DIR/yay"
+
+  info "Building and installing yay..."
+  makepkg -si --noconfirm --dir "$TMP_DIR/yay"
+
+  ok "'yay' installed successfully!"
+fi
