@@ -1,9 +1,12 @@
-#!/usr/bin/enc bash
+#!/usr/bin/env bash
 
 # Parse args and flags
-while [[ $# -gt 0 ]]; do 
-  case "$1" in 
-    -r|--remove) REMOVE=1; shift ;;
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+  -r | --remove)
+    REMOVE=1
+    shift
+    ;;
   esac
 done
 
