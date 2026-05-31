@@ -1,12 +1,13 @@
 bash-completion
 bat
 fzf
+gum
+lsd
 neovim
 ripgrep
 starship
-lsd
 stow
 tmux
 tree
-zsh
 zoxide
+zsh
