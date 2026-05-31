@@ -19,4 +19,4 @@ echo "Cleaning ~/.bashrc..."
 mv ~/.bashrc ~/.bashrc.bak
 
 echo "Cleaning ~/.hypr/hyprland.conf"
-mv -/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf.bak
+mv ~/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf.bak
