@@ -32,7 +32,7 @@ for path in ${PATHS[@]}; do
       notice "Restoring up '$backup' to '$path'..." ||
       debug "'$backup' does not exist! Nothing to do..."
 
-    [[ -e "$path" ]] || mv "$backup" "$path"
+    [[ -e "$backup" ]] || mv "$backup" "$path"
   else
     [[ -e "$path" ]] &&
       notice "Backing up '$path' to '$backup'..." ||
