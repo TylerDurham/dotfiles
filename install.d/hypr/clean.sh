@@ -15,5 +15,7 @@ if [[ -n "$REMOVE" ]]; then
   exit 0
 fi
 
-echo "Cleaning ~/.hypr/hyprland.conf"
-mv ~/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf.bak
+if [[ -f ~/.config/hypr/hyprland.conf ]]; then
+  echo "Cleaning ~/.hypr/hyprland.conf"
+  mv ~/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf.bak
+fi
