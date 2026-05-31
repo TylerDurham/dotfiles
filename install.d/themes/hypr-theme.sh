@@ -21,4 +21,5 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-hypr-set-current-theme lovely-day
+info "Setting theme to 'lovely-day' by linking at '$USER_CONFIG_DIR/current'..."
+ln -sf "$USER_THEME_DIR/.local/share/dtd/themes/lovely-day" "$USER_CONFIG_DIR/current"
