@@ -10,13 +10,19 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ -n "$REMOVE" ]]; then
-  warn "Not supported - yet!"
-  exit 0
-fi
-
-echo "Cleaning ~/.bashrc..."
-mv ~/.bashrc ~/.bashrc.bak
-
-echo "Cleaning ~/.hypr/hyprland.conf"
-mv ~/.config/hypr/hyprland.conf ~/.config/hypr/hyprland.conf.bak
+PATHS=(
+  ~/.bashrc
+  ~/.zshrc
+)
+for path in ${PATHS[@]}; do
+  backup="$path.bak"
+  if [[ -n "$REMOVE" ]]; then
+    [[ -e "$backup" ]] &&
+      notice "Restoring up '$backup' to '$path'..." ||
+      debug "'$backup' does not exist! Nothing to do..."
+  else
+    [[ -e "$path" ]] &&
+      notice "Backing up '$path' to '$backup'..." ||
+      debug "'$path' does not exist! Nothing to do..."
+  fi
+done
