@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Launch a test shell with dotfiles stowed from a given directory.
+# Launch a 'mock' test shell with dotfiles stowed from a given directory.
 # Uses a temporary $HOME so all $HOME-relative paths resolve to the test tree.
 
 ROOT_DIR=$(git rev-parse --show-toplevel)
@@ -11,12 +11,7 @@ source "$LOG_LIB" || {
   exit 1
 }
 
-DOTFILES_DIR="$(cd "$(dirname "$0")/" && pwd)"
-STOW_DIR="$DOTFILES_DIR/core"
 SHELL_TYPE="${SHELL:-zsh}"
-SHELL_TYPE="${SHELL_TYPE##*/}" # strip path prefix (e.g. /bin/zsh -> zsh)
-SHELL_TYPE="bash"
-
 RUN_CMD=""
 
 usage() {
@@ -65,13 +60,6 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [[ ! -d "$STOW_DIR" ]]; then
-  echo "Error: stow directory '$STOW_DIR' not found"
-  exit 1
-else
-  cd "$STOW_DIR"
-fi
-
 if ! command -v stow &>/dev/null; then
   warn "'stow' is not installed!"
 fi
@@ -85,6 +73,8 @@ echo "Exit the shell to clean up."
 echo "---"
 
 XDG_CONFIG_HOME=$FAKE_HOME
+
+touch "$FAKE_HOME/.bashrc"
 
 if [[ -n "$RUN_CMD" ]]; then
   HOME="$FAKE_HOME" \
