@@ -1,9 +1,12 @@
-^install$
-^install\.d$
+^LICENSE$
 ^README.md$
-^shelf$
-^temp$
-^ssh$
 ^\.git$
 ^\.gitignore$
+^\.luarc.json$
+^install$
+^install\.d$
 ^require.sh$
+^scripts$
+^shelf$
+^ssh$
+^temp$
