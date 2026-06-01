@@ -21,12 +21,14 @@ network-manager-applet
 noto-fonts
 noto-fonts-emoji
 nwg-look
+obsidian
 pavucontrol
 pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
 playerctl
+plexamp-bin
 popsicle-bin
 qt5-wayland
 qt6-wayland
@@ -43,5 +45,4 @@ wl-clipboard
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-user-dirs
-xdg-user-dirs-update
 libappindicator-gtk3
