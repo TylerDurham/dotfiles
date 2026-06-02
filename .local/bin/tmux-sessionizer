@@ -17,7 +17,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/Pictures/ ~/Development ~/Development/dotfiles ~/ ~/Downloads ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~Documents ~Downloads ~/Config.ssh ~/Projects  ~/.config -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
