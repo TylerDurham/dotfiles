@@ -29,7 +29,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -n "$REMOVE" ]]; then
-  sudo systemctl disable sddm
-else 
   sudo systemctl enable sddm
+else
+  sudo systemctl disable sddm
 fi
