@@ -7,7 +7,9 @@ neovim
 ripgrep
 starship
 stow
+terminus-font
 tmux
 tree
+vim
 zoxide
 zsh
