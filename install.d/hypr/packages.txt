@@ -21,7 +21,6 @@ network-manager-applet
 noto-fonts
 noto-fonts-emoji
 nwg-look
-obsidian
 pavucontrol
 pipewire
 pipewire-alsa
