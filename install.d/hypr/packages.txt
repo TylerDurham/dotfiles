@@ -27,6 +27,7 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+power-profiles-daemon
 playerctl
 plexamp-bin
 plymouth
