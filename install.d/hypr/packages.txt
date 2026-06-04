@@ -15,6 +15,7 @@ hyprpolkitagent
 hyprsunset
 inotify-tools
 kitty
+libappindicator-gtk3
 libsecret
 nautilus
 network-manager-applet
@@ -28,6 +29,8 @@ pipewire-jack
 pipewire-pulse
 playerctl
 plexamp-bin
+plymouth
+plymouth-theme-dark-arch
 popsicle-bin
 qt5-wayland
 qt6-wayland
@@ -44,4 +47,3 @@ wl-clipboard
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-user-dirs
-libappindicator-gtk3
