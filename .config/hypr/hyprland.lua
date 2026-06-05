@@ -11,6 +11,7 @@
 require("modules.autostart")
 require("modules.monitors")
 require("modules.workspaces")
+require("modules.windows")
 require("modules.looknfeel")
 require("modules.keybinds")
 require("modules.envs")
