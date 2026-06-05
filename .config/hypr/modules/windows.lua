@@ -25,6 +25,15 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name = "multimedia-window",
+  match = {
+    class = "^([s|S]potify|plexamp)$"
+  },
+  workspace = "9",
+  opacity = "1.0 override"
+})
+
+hl.window_rule({
   name = "modal-utility-window",
   match = {
     class = "^(blueman-manager|nm-connection-editor)$"
