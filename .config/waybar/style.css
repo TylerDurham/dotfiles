@@ -39,7 +39,6 @@ window#waybar {
   color: @color4;
   font-weight: 500;
   padding: 1px 10px;
-  border: inset 1px;
   border-radius: 20px;
 }
 
@@ -81,7 +80,7 @@ window#waybar {
 #bluetooth {
   color: @ffffff;
   min-width: 20px;
-  margin: 10px 2px;
+  margin: 10px 0px;
   background-color: #003366;
   border-radius: 25px;
 }
