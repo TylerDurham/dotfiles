@@ -39,13 +39,12 @@ window#waybar {
   color: @color4;
   font-weight: 500;
   padding: 1px 10px;
-  border: inset 2px;
+  border: inset 1px;
   border-radius: 20px;
 }
 
 #custom-launcher,
 #network,
-#bluetooth,
 #battery,
 #power-profiles-daemon
 {
@@ -69,11 +68,20 @@ window#waybar {
   transition: all 0.3s ease-in-out;
 }
 
+/*
 #bluetooth {
   background-color: @color4;
   color: @background;
   padding: 0 10px;
   margin: 0;
   font-size: 1.45em;
-  border-radius: 15px;
+}
+*/ 
+
+#bluetooth {
+  color: @ffffff;
+  min-width: 20px;
+  margin: 10px 2px;
+  background-color: #003366;
+  border-radius: 25px;
 }
