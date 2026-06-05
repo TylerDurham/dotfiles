@@ -17,7 +17,6 @@ hl.config({
     -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
     allow_tearing = false,
 
-    layout = "dwindle",
   },
 
   misc = {
@@ -25,7 +24,7 @@ hl.config({
   },
 
   decoration = {
-    rounding = 15,
+    rounding = 10,
     rounding_power = 10,
 
     -- Change transparency of focused and unfocused windows
@@ -98,23 +97,7 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 --     rounding    = 0,
 -- })
 
--- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
-hl.config({
-  dwindle = {
-    preserve_split = true, -- You probably want this
-  },
-})
 
--- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
-hl.config({
-  master = {
-    new_status = "master",
-  },
-})
-
--- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
-hl.config({
-  scrolling = {
-    fullscreen_on_one_column = true,
-  },
-})
+-- hl.gesture({ fingers = 3, direction = "down", mods = "ALT", action = "close" })
+-- hl.gesture({ fingers = 3, direction = "up", mods = "SUPER", scale = 1.5, action = "fullscreen" })
+-- hl.gesture({ fingers = 3, direction = "left", scale = 1.5, action = "float" })
