@@ -20,4 +20,4 @@ awww img $BACKGROUND
 rm "$USER_CURRENT_THEME_DIR"
 ln -s $THEME_PATH $USER_CURRENT_THEME_DIR
 
-
+hypr-restart-theme

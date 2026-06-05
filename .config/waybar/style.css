@@ -4,34 +4,39 @@
   /* `otf-font-awesome` is required to be installed for icons */
   all: unset;
   font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .modules-right, .modules-left, .modules-center {
   border-radius: 15px;
-  padding: 0px 20px;
-  margin: 10px 25px;
+  padding: 0px 5px;
+  margin: 10px 10px;
+  color: shade(@foreground, 0.85);
+  background-color: alpha(@theme_base_color, 0.40);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
-.modules-left, .modules-right {
+.modules-left {
+  margin-left: 26px;
 }
 
 .modules-center {
+  padding: 0px 25px;
 }
 
-.modules-right, .modules-left, #workspaces button {
-  color: shade(@foreground, 0.85);
-  background-color: @theme_base_color;
+.modules-right {
+  margin-right: 29px;
 }
-
 
 window#waybar {
-  color: @foreground;
-  background-color: alpha(@theme_base_color, 0.50);
+  background-color: transparent;
+}
+
+window#waybar > box {
 }
 
 #custom-launcher {
-  color: @color9;
+  color: @color4;
   font-size: 22px;
 }
 
@@ -47,7 +52,7 @@ window#waybar {
 #battery,
 #power-profiles-daemon
 {
-  margin: 10px 15px;
+  margin: 1px 15px;
 }
 
 #workspaces {
@@ -57,30 +62,25 @@ window#waybar {
 #workspaces button {
     border-bottom: 2px solid transparent;
     min-width: 40px;
+    background-color: transparent;
+}
+
+#workspaces button.empty {
+    color: shade(@foreground, .50);
 }
 
 #workspaces button.active {
   color: @color4;
   border-radius: 25px;
   border-bottom: 2px solid @foreground;
-  border-top: 2px solid @color9;
+  border-top: 2px solid @color4;
   transition: all 0.3s ease-in-out;
 }
-
-/*
-#bluetooth {
-  background-color: @color4;
-  color: @background;
-  padding: 0 10px;
-  margin: 0;
-  font-size: 1.45em;
-}
-*/ 
 
 #bluetooth {
   color: @ffffff;
   min-width: 20px;
   margin: 10px 0px;
   background-color: #003366;
-  border-radius: 25px;
+  border-radius: 15px;
 }
