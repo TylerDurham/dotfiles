@@ -62,8 +62,8 @@ for i = 1, 10 do
 end
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
-hl.bind(MAIN_MOD .. " + mouse:272", hl.dsp.window.drag())
-hl.bind(MAIN_MOD .. " + SHIFT + mouse:272", hl.dsp.window.resize())
+hl.bind(MAIN_MOD .. " + mouse:272", hl.dsp.window.drag(), { description = "🖱️ Move window." })
+hl.bind(MAIN_MOD .. " + SHIFT + mouse:272", hl.dsp.window.resize(), { description = "🖱️ Resize window." })
 
 -----------------------------
 ---- MEDIA/ETC. KEYBINDS ----
