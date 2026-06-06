@@ -16,6 +16,7 @@ hyprsunset
 inotify-tools
 kitty
 libappindicator-gtk3
+libnotify
 libsecret
 nautilus
 network-manager-applet
@@ -39,6 +40,7 @@ rofi-wayland
 satty
 sddm
 slurp
+swaync
 swww
 ttf-firacode-nerd
 ttf-jetbrains-mono-nerd
