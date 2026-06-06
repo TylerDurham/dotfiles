@@ -12,11 +12,10 @@ else
   POPUP_SESSION="popup_${WINDOW_ID}"
   CWD=$(tmux display-message -p "#{pane_current_path}")
   # if tmux has-session -t "$POPUP_SESSION" 2>/dev/null; then
-   # tmux send-keys -t "$POPUP_SESSION" " cd $(printf '%q' "$CWD")" Enter
+  # tmux send-keys -t "$POPUP_SESSION" " cd $(printf '%q' "$CWD")" Enter
   # fi
   tmux popup -d "$CWD" -xC -yC -w95% -h95% \
     -b rounded \
-    -s "fg=#cdd6f4,bg=default" \
-    -S "fg=#313244" \
-    -E "tmux attach -t '$POPUP_SESSION' || tmux new -s '$POPUP_SESSION'"
+    -E "tmux attach -t '$POPUP_SESSION' || tmux new -s '$POPUP_SESSION'" # -s "fg=#cdd6f4,bg=default" \
+  # -S "fg=#313244" \
 fi

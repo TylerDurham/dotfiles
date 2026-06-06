@@ -7,6 +7,7 @@
 ^install\.d$
 ^require.sh$
 ^scripts$
+^settings.local.json$
 ^shelf$
 ^ssh$
 ^temp$
