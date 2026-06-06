@@ -34,6 +34,15 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name = "terminal-window",
+  match = {
+    class = "^(com.mitchellh.ghostty)$"
+  },
+  workspace = "1",
+  opacity = "0.9 override"
+})
+
+hl.window_rule({
   name = "modal-utility-window",
   match = {
     class = "^(blueman-manager|nm-connection-editor)$"

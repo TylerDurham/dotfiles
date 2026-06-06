@@ -1,7 +1,6 @@
 @import "../dtd/current/waybar.css";
 
 * {
-  /* `otf-font-awesome` is required to be installed for icons */
   all: unset;
   font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
   font-size: 14px;
@@ -11,9 +10,10 @@
   border-radius: 15px;
   padding: 0px 5px;
   margin: 10px 10px;
-  color: shade(@foreground, 0.85);
-  background-color: alpha(@theme_base_color, 0.40);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0px;
+  color: @foreground;
+  background-color: alpha(@background, 0.90);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 .modules-left {
@@ -30,18 +30,19 @@
 
 window#waybar {
   background-color: transparent;
+  margin: 0px;
 }
 
 window#waybar > box {
 }
 
 #custom-launcher {
-  color: @color4;
+  color: @cyan;
   font-size: 22px;
 }
 
 #clock {
-  color: @color4;
+  color: @foreground;
   font-weight: 500;
   padding: 1px 10px;
   border-radius: 20px;
@@ -50,7 +51,8 @@ window#waybar > box {
 #custom-launcher,
 #network,
 #battery,
-#power-profiles-daemon
+#power-profiles-daemon,
+#idle_inhibitor
 {
   margin: 1px 15px;
 }
@@ -66,14 +68,14 @@ window#waybar > box {
 }
 
 #workspaces button.empty {
-    color: shade(@foreground, .50);
+    color: @foreground;
 }
 
 #workspaces button.active {
-  color: @color4;
+  color: @green;
   border-radius: 25px;
-  border-bottom: 2px solid @foreground;
-  border-top: 2px solid @color4;
+  border-bottom: 2px solid alpha(@text1, 0.70);
+  border-top: 2px solid @blue;
   transition: all 0.3s ease-in-out;
 }
 
@@ -83,4 +85,50 @@ window#waybar > box {
   margin: 10px 0px;
   background-color: #003366;
   border-radius: 15px;
+}
+
+#idle_inhibitor.activated {
+  animation: pulse 3s ease-in-out infinite;
+  color: @yellow;
+}
+
+#idle_inhibitor.deactivated {
+  color: @text3;
+}
+
+#power-profiles-daemon.performance {
+  animation: pulse 3s ease-in-out infinite;
+  color: @yellow;
+}
+
+#power-profiles-daemon.balanced{
+  color: @blue;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @green;
+}
+
+tooltip {
+    background-color: alpha(@background, 0.90);
+    border: 1px solid alpha(@yellow, 0.6);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+tooltip label {
+    color: @foreground;
+    font-size: 13px;
+}
+
+@keyframes pulse {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+@keyframes pulse-bg {
+    0%   { background: rgba(255, 200, 0, 0.0); }
+    50%  { background: rgba(255, 200, 0, 0.25); }
+    100% { background: rgba(255, 200, 0, 0.0); }
 }

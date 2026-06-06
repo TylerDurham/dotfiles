@@ -12,6 +12,7 @@
   ],
   "modules-right": [
     "battery",
+    "idle_inhibitor",
     "bluetooth",
     "network",
     "tray",
@@ -27,6 +28,18 @@
   "clock": {
     "format": "{:L%A %I:%M %p}",
     "format-alt": "{:L%A %I:%M %p}"
+  },
+  "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      },
+      "timeout": 30.0,
+      "start-activated": false,
+      "tooltip": true,
+      "tooltip-format-activated": "Idle inhibitor: ON\nScreen will not lock or sleep",
+      "tooltip-format-deactivated": "Idle inhibitor: OFF\nNormal idle behavior active"
   },
   "bluetooth": {
     "format": "",
