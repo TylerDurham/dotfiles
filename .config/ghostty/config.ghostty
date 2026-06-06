@@ -11,4 +11,7 @@ keybind = shift+ctrl+l=next_tab
 keybind = ctrl+shift+comma=reload_config
 keybind = ctrl+shift+x=close_tab
 
+# Don't nag me when closing ghostty... just do it.
+confirm-close-surface = false
+
 shell-integration-features = ssh-terminfo,ssh-env
