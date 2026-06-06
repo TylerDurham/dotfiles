@@ -1,6 +1,6 @@
 {
   "diagnostics": {
-    "globals" [ "vim" ]
+    "globals": [ "hl", "vim" ]
   },
   "workspace": {
     "library": [
