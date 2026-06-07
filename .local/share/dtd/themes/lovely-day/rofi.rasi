@@ -22,7 +22,7 @@
   /* Named colors */
   red:                #F07178;  /* Soft red — errors, deletions */
   green:              #7FD962;  /* Bright green — strings, additions */
-  green-trans:        #7FD962AA;  /* Bright green — strings, additions */
+  green-trans:        #7FD962AA;/* Bright green — strings, additions */
   blue:               #59C2FF;  /* Sky blue — constants, links */
   orange:             #E6B450;  /* Gold orange — keywords, warnings */
   yellow:             #E6B673;  /* Warm yellow — attributes, tags */
