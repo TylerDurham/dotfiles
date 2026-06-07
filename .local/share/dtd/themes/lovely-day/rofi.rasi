@@ -5,7 +5,7 @@
   cursor:             #E6B450;  /* Matches accent1 (gold cursor) */
   foreground:         #BFBDB6;  /* Soft white — primary text */
   background:         #0D1017;  /* Deep dark — editor background */
-  background-trans:   #0D1017BB;  /* Deep dark — editor background */
+  background-trans:   #0D1017BB;/* Deep dark — editor background */
   selection-fg:       #BFBDB6;  /* Same as foreground */
   selection-bg:       #273747;  /* Muted blue-grey selection */
 
