@@ -19,5 +19,6 @@ hl.config({
 		"CLUTTER_BACKEND,wayland",
 		"GDK_BACKEND,wayland,x11",
 		"MOZ_ENABLE_WAYLAND,1",
+    "PATH,~/.local/bin:$PATH"
 	},
 })

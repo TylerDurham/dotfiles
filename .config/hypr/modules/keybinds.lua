@@ -42,8 +42,8 @@ hl.bind(
 hl.bind(MAIN_MOD .. " + N", hl.dsp.exec_cmd(NOTES), { description = "󰠮 Launch Notes (" .. NOTES .. ")" })
 hl.bind(
   MAIN_MOD .. " + K",
-  hl.dsp.exec_cmd("~/.local/share/omarchy/bin/omarchy-menu-keybindings"),
-  { description = "󰌌 Show/Search Keybinds" }
+  hl.dsp.exec_cmd("~/.local/bin/hypr-show-keybinds"),
+  { description = "󰌌 Show/Search Hyprland Keybinds" }
 )
 
 ----------------------------
@@ -65,7 +65,22 @@ end
 hl.bind(MAIN_MOD .. " + mouse:272", hl.dsp.window.drag(), { description = "🖱️ Move window." })
 hl.bind(MAIN_MOD .. " + SHIFT + mouse:272", hl.dsp.window.resize(), { description = "🖱️ Resize window." })
 
------------------------------
+hl.bind(MAIN_MOD .. " + bracketright", function()
+    hl.dsp.window.cycle_next({ "e+1", 'scrolling'})
+end, { description = "Cycle/move to the next non-empty window."})
+
+hl.bind(MAIN_MOD .. " + bracketright", function()
+end, { description = "Cycle/move to the previous non-empty window."})
+
+hl.bind(MAIN_MOD .. " + SHIFT + bracketright", function()
+    hl.dispatch(hl.dsp.focus({ workspace = "e+1" }))
+end, { description = "Cycle/move to the next non-empty workspace."})
+
+hl.bind(MAIN_MOD .. "+ SHIFT + bracketleft", function()
+    hl.dispatch(hl.dsp.focus({ workspace = "e-1" }))
+end, { description = "Cycle/move to the previous non-empty workspace."})
+
+-----------------------
 ---- MEDIA/ETC. KEYBINDS ----
 -----------------------------
 -- Laptop multimedia keys for volume and LCD brightness
@@ -121,3 +136,4 @@ hl.bind(
   hl.dsp.exec_cmd("playerctl previous"),
   { description = "󰒮 Previous Media/Audio Track", locked = true }
 )
+
