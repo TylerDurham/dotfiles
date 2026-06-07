@@ -48,6 +48,8 @@ hl.bind(
   { description = "󰌌 Show/Search Hyprland Keybinds" }
 )
 
+hl.bind(MAIN_MOD .. " + SHIFT + N", hl.dsp.exec_cmd("~/.local/bin/hypr-toggle-nightlight"), { description = "󰖔 Toggle Nightlight on/off." })
+
 ----------------------------
 ---- WORKSPACE KEYBINDS ----
 ----------------------------
