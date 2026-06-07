@@ -45,7 +45,7 @@ hl.window_rule({
 hl.window_rule({
   name = "modal-utility-window",
   match = {
-    class = "^(blueman-manager|nm-connection-editor)$"
+    class = "^(blueman-manager|nm-connection-editor|org.pulseaudio.pavucontrol)$"
   },
   tag = "+floating-window",
   dim_around = true,

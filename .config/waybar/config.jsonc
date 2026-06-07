@@ -12,11 +12,12 @@
   ],
   "modules-right": [
     "battery",
+    "pulseaudio",
     "idle_inhibitor",
     "bluetooth",
     "network",
     "tray",
-    "power-profiles-daemon",
+    "power-profiles-daemon"
   ],
   "custom/launcher": {
     "format": "󰣇",
@@ -105,13 +106,29 @@
       "power-saver": ""
     }
   },
+
+"pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "default": ["", "", ""]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+  },
+
   "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
     "sort-by-number": true,
     "format-icons": {
       "active": ""
-    },
+    }
     // "persistent-workspaces": {
     //   "*": 5, // 5 workspaces by default on every monitor
     // }
