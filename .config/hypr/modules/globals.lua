@@ -11,7 +11,7 @@ M = {
 	programs = makeConst({
 		TERMINAL = "ghostty",
 		FILE_MANAGER = "nautilus",
-		APP_LAUNCHER = "hyprlauncher",
+		APP_LAUNCHER = "~/.local/bin/hypr-launch-applications",
 		BROWSER = "brave",
 		NOTES = "obsidian",
 	}),

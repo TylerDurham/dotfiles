@@ -8,8 +8,7 @@
 # ╚══════╝ ╚═════╝   ╚═══╝  ╚══════╝╚══════╝╚═╝        ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
 # ##############################################################################
 
-# UI Colors (based on the Ayu Dark Color Palette
-# https://ayutheme.com/
+# UI Colors (based on the Ayu Dark Color Palette)
 # https://github.com/ayu-theme/ayu-colors
  
 accent1               = "#E6B450"  # Orange/gold — keywords, highlights
@@ -17,8 +16,9 @@ accent2               = "#39BAE6"  # Cyan/blue — functions, types
 cursor                = "#E6B450"  # Matches accent1 (gold cursor)
 foreground            = "#BFBDB6"  # Soft white — primary text
 background            = "#0D1017"  # Deep dark — editor background
-selection_foreground  = "#BFBDB6"  # Same as foreground
-selection_background  = "#273747"  # Muted blue-grey selection
+selection_fg          = "#BFBDB6"  # Same as foreground
+
+selection_bg          = "#273747"  # Muted blue-grey selection
 
 # Text colors
 text1                 = "#BFBDB6"  # Primary text — same as foreground
@@ -26,9 +26,9 @@ text2                 = "#8A9099"  # Muted text — comments, secondary
 text3                 = "#556070"  # Subtle text — disabled, placeholders
 
 # Surface colors
-surface1                = "#131720"  # Slightly lifted surface — sidebars
-surface2                = "#1A2130"  # Mid surface — input backgrounds, cards
-surface3                = "#232E3E"  # Raised surface — hover states, borders
+surface1              = "#131720"  # Slightly lifted surface — sidebars
+surface2              = "#1A2130"  # Mid surface — input backgrounds, cards
+surface3              = "#232E3E"  # Raised surface — hover states, borders
 
 # Named colors
 red                   = "#F07178"  # Soft red — errors, deletions
