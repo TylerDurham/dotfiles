@@ -16,6 +16,8 @@ local FILE_MANAGER = g.programs.FILE_MANAGER
 local BROWSER = g.programs.BROWSER
 local NOTES = g.programs.NOTES
 
+local monitors = require("modules.monitors")
+
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 
 ----------------------
@@ -46,6 +48,8 @@ hl.bind(
   { description = "󰌌 Show/Search Hyprland Keybinds" }
 )
 
+hl.bind(MAIN_MOD .. " + SHIFT + N", hl.dsp.exec_cmd("~/.local/bin/hypr-toggle-nightlight"), { description = "󰖔 Toggle Nightlight on/off." })
+
 ----------------------------
 ---- WORKSPACE KEYBINDS ----
 ----------------------------
@@ -60,6 +64,8 @@ for i = 1, 10 do
     { description = "󰖲 Move Window to Workspace " .. i }
   )
 end
+
+-- hl.bind("SUPER + CTRL + SHIFT + 1", function() monitors.move_workspace_to_monitor("1", "DP-1") end)
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(MAIN_MOD .. " + mouse:272", hl.dsp.window.drag(), { description = "🖱️ Move window." })
