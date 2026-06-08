@@ -90,34 +90,44 @@ end, { description = "Cycle/move to the previous non-empty workspace."})
 ---- MEDIA/ETC. KEYBINDS ----
 -----------------------------
 -- Laptop multimedia keys for volume and LCD brightness
+-- - Volume
+-- hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume raise"), { locked = true, repeating = true })
+-- hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("swayosd-client --output-volume lower"), { locked = true, repeating = true })
+-- hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"), { locked = true })
+--
+-- -- Brightness
+-- hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness raise"), { locked = true, repeating = true })
+-- hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower"), { locked = true, repeating = true })
+
+
 hl.bind(
   "XF86AudioRaiseVolume",
-  hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+  hl.dsp.exec_cmd("swayosd-client --output-volume raise"),
   { description = "󰝝 Raise the Media/Audio Volume", locked = true, repeating = true }
 )
 hl.bind(
   "XF86AudioLowerVolume",
-  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+  hl.dsp.exec_cmd("swayosd-client --output-volume lower"),
   { description = "󰝞 Lower the Media/Audio Volume", locked = true, repeating = true }
 )
 hl.bind(
   "XF86AudioMute",
-  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+  hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"),
   { description = "󰝟 Mute the Media/Audio Volume", locked = true, repeating = true }
 )
 hl.bind(
   "XF86AudioMicMute",
-  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+  hl.dsp.exec_cmd("swayosd-client --input-volume mute-toggle"),
   { description = "󰍭 Mute the Input/Microphone Volume", locked = true, repeating = true }
 )
 hl.bind(
   "XF86MonBrightnessUp",
-  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),
+  hl.dsp.exec_cmd("swayosd-client --brightness raise"),
   { description = "󰛨 Increase Screen Brightness", locked = true, repeating = true }
 )
 hl.bind(
   "XF86MonBrightnessDown",
-  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),
+  hl.dsp.exec_cmd("swayosd-client --brightness lower"),
   { description = "󰹏 Decrease Screen Brightness", locked = true, repeating = true }
 )
 

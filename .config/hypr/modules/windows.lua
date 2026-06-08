@@ -32,6 +32,14 @@ hl.window_rule({
   tag = "+floating-window"
 })
 
+hl.window_rule({
+  name = "media-window",
+  match = { tag = "media-window" },
+  dim_around = true,
+  opacity = "1.0",
+  workspace = "9"
+})
+
 -- hl.window_rule({
 --   name = "multimedia-window",
 --   match = {

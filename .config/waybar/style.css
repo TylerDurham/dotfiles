@@ -75,7 +75,7 @@ window#waybar > box {
 #workspaces button.active {
   color: @green;
   border-radius: 25px;
-  border-bottom: 2px solid alpha(@text1, 0.70);
+  border-bottom: 2px solid @text1;
   border-top: 2px solid @blue;
   transition: all 0.3s ease-in-out;
 }

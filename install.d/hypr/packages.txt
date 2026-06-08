@@ -31,6 +31,7 @@ pipewire-pulse
 power-profiles-daemon
 playerctl
 plexamp-bin
+plex-desktop
 plymouth
 plymouth-theme-dark-arch
 popsicle-bin
@@ -41,6 +42,7 @@ satty
 sddm
 slurp
 swaync
+swayosd
 swww
 ttf-firacode-nerd
 ttf-jetbrains-mono-nerd
