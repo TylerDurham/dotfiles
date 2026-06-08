@@ -36,7 +36,7 @@
         "activated": "",
         "deactivated": ""
       },
-      "timeout": 30.0,
+      "timeout": 60.0,
       "start-activated": false,
       "tooltip": true,
       "tooltip-format-activated": "Idle inhibitor: ON\nScreen will not lock or sleep",
