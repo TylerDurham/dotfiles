@@ -59,6 +59,10 @@ declare -rx USER_ENVS_LOADED=1 &> /dev/null
 export LIBGUESTFS_BACKEND=direct
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # if [[ -n "${USER_ENVS_LOADED}" ]]; then
 #     # echo "USER_ENVS already loaded by '$0'." 
 #     return 0
