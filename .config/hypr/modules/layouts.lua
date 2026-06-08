@@ -25,6 +25,6 @@ hl.config({
 })
 
 hl.gesture({ fingers = 3, direction = "horizontal", scale = 1.5, action = "scroll_move" })
-hl.gesture({ fingers = 4, direction = "horizontal", scale = 1.5, action = "workspace" })
+hl.gesture({ fingers = 3, mods = "SHIFT", direction = "horizontal", scale = 1.5, action = "workspace" })
 hl.gesture({ fingers = 3, direction = "down", scale = 1.5, mods = "ALT", action = "close" })
 hl.gesture({ fingers = 4, direction = "pinchout", scale = 1.5, action = "fullscreen" })
