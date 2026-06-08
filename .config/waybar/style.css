@@ -88,6 +88,11 @@ window#waybar > box {
   border-radius: 15px;
 }
 
+#bluetooth.connected {
+  color: @background;
+  background-color: @green;
+}
+
 #pulseaudio {
   margin: 0px 0px;
 }
