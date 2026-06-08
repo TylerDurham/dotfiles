@@ -128,9 +128,9 @@
     "sort-by-number": true,
     "format-icons": {
       "active": ""
+    },
+    "persistent-workspaces": {
+      "*": 5 // 5 workspaces by default on every monitor
     }
-    // "persistent-workspaces": {
-    //   "*": 5, // 5 workspaces by default on every monitor
-    // }
   }
 }
