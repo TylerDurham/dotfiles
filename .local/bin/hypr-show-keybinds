@@ -4,4 +4,5 @@
   -i \
   -p "Hyprland Keybinds" \
   -width 600 \
-  -theme ~/.config/rofi/simple.rasi
+  -theme ~/.config/rofi/simple.rasi \
+  -kb-accept-entry "" -kb-accept-custom "" -kb-accept-alt ""

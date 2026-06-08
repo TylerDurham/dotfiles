@@ -63,22 +63,24 @@ inputbar {
     border-radius:               0px;
     border-color:                @accent2;
     background-color:            @background;
-    text-color:                  @accent2;
-    children:                    [ "prompt", "entry" ];
+    text-color:                  @foreground;
+    children:                    [ "prompt", "textbox-prompt-colon", "entry" ];
 }
 
 prompt {
     enabled:                     true;
-    background-color:            inherit;
-    text-color:                  inherit;
+    background-color:            @background;
+    text-color:                  @accent2;
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
-    str:                         "::";
+    str:                         "";
     background-color:            inherit;
-    text-color:                  inherit;
+    text-color:                  @foreground;
 }
+
 entry {
     enabled:                     true;
     background-color:            inherit;
