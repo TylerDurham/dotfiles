@@ -127,7 +127,8 @@
     "on-click": "activate",
     "sort-by-number": true,
     "format-icons": {
-      "active": ""
+      "9": "",
+      "10": "󰒃"
     },
     "persistent-workspaces": {
       "*": 5 // 5 workspaces by default on every monitor
