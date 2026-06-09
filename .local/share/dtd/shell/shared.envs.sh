@@ -30,8 +30,8 @@ export MY_CONFIG_DIR="$USER_CONFIG_DIR"
 export MY_LIB_DIR="$USER_LIB_DIR"
 export MY_LOG_DIR="$USER_LOG_DIR"
 export MY_WALLPAPER_DIR="$USER_WALLPAPER_DIR"
-
 export PATH="$USER_BIN_DIR:$HOME/go/bin:/usr/local/go/bin:$PATH"
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # # =======================================================================================
 # # LOGGING
