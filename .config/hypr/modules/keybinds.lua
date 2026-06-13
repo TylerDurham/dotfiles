@@ -65,7 +65,9 @@ for i = 1, 10 do
   )
 end
 
--- hl.bind("SUPER + CTRL + SHIFT + 1", function() monitors.move_workspace_to_monitor("1", "DP-1") end)
+-- Move workspaces to monitors
+hl.bind("SUPER + SHIFT + LEFT", hl.dsp.workspace.move({ monitor = "+1" }), { description = " 󰛽 Move current workspace to monitor on left." })
+hl.bind("SUPER + SHIFT + RIGHT", hl.dsp.workspace.move({ monitor = "-1" }), { description = " 󰛾 Move current workspae to monitor on right." })
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(MAIN_MOD .. " + mouse:272", hl.dsp.window.drag(), { description = "🖱️ Move window." })
@@ -89,16 +91,6 @@ end, { description = "Cycle/move to the previous non-empty workspace."})
 -----------------------
 ---- MEDIA/ETC. KEYBINDS ----
 -----------------------------
--- Laptop multimedia keys for volume and LCD brightness
--- - Volume
--- hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("swayosd-client --output-volume raise"), { locked = true, repeating = true })
--- hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("swayosd-client --output-volume lower"), { locked = true, repeating = true })
--- hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("swayosd-client --output-volume mute-toggle"), { locked = true })
---
--- -- Brightness
--- hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("swayosd-client --brightness raise"), { locked = true, repeating = true })
--- hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("swayosd-client --brightness lower"), { locked = true, repeating = true })
-
 
 hl.bind(
   "XF86AudioRaiseVolume",
