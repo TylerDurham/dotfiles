@@ -6,7 +6,7 @@ end
 local function substr_after(after, s)
   local length = string.len(after)
 
-  return string.sub(s, length)
+  return string.sub(s, length + 1)
 end
 
 M = {
