@@ -145,3 +145,5 @@ hl.bind(
   { description = "󰒮 Previous Media/Audio Track", locked = true }
 )
 
+hl.bind("SUPER + ALT + G", hl.dsp.exec_cmd("bash -c 'printenv USER_LIB_DIR > /tmp/hypr-env-test.txt'"))
+

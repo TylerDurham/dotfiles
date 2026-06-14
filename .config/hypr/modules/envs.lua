@@ -8,6 +8,8 @@
 -- ╚══════╝╚═╝  ╚═══╝  ╚═══╝  ╚══════╝
 -- ###################################
 
+local home = os.getenv("HOME")
+
 hl.config({
 	env = {
 		"XCURSOR_SIZE,24",
@@ -19,7 +21,7 @@ hl.config({
 		"CLUTTER_BACKEND,wayland",
 		"GDK_BACKEND,wayland,x11",
 		"MOZ_ENABLE_WAYLAND,1",
-    "PATH,~/.local/bin:$PATH",
-    "USER_LIB_DIR,$HOME/.local/share/dtd/lib"
+		"PATH," .. home .. "/.local/bin:$PATH",
+		"USER_LIB_DIR," .. home .. "/.local/share/dtd/lib",
 	},
 })
