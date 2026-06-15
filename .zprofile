@@ -1,4 +1,6 @@
 
+source ~/.local/share/dtd/shell/zsh.rc.sh
+
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
   if $(gum confirm "Start Hyprland?"); then
     gum log --level info "Starting Hyprland..."

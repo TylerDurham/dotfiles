@@ -25,3 +25,6 @@ hl.config({
 		"USER_LIB_DIR," .. home .. "/.local/share/dtd/lib",
 	},
 })
+
+-- hl.env("PATH", home .. "/.local/bin:$PATH")
+-- hl.env("USER_LIB_DIR", home .. "/.local/shared/dtd/lib")
