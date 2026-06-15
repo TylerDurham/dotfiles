@@ -30,6 +30,8 @@ MODULES=(
   packages.sh
   sddm.sh
   autologin.sh
+  webapps.sh
+  keyring.sh
   desktop.sh
   clean.sh
 )
