@@ -21,7 +21,7 @@
   ],
   "custom/launcher": {
     "format": "󰣇",
-    "on-click": "launch-rofi-modules ~/.config/rofi/modules/system.json"
+    "on-click": "hypr-launch-applications"
   },
   "hyprland/window": {
     "max-length": 50
