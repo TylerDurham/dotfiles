@@ -15,3 +15,6 @@ keybind = ctrl+shift+x=close_tab
 confirm-close-surface = false
 
 shell-integration-features = ssh-terminfo,ssh-env
+
+# Allow local overrides
+config-file = ?local.ghostty
